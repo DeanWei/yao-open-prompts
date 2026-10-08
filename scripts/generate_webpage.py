@@ -14,6 +14,7 @@ DOCS_DIR = ROOT / "docs"
 OUTPUT = DOCS_DIR / "index.html"
 
 REPO_URL = "https://github.com/yaojingang/yao-open-prompts"
+ENGLISH_COUNT = sum(1 for path in (ROOT / 'prompts-en').rglob('*.md') if path.name != 'README.md')
 
 CATEGORY_ORDER = [
     "AI方法",
@@ -35,7 +36,7 @@ CATEGORY_DESCRIPTIONS = {
     "AI教育": "儿童教育、互动学习页面、小游戏生成、教学活动",
     "AI内容": "写作、润色、标题、公众号HTML、短视频、内容运营、图像",
     "AI编程": "架构设计、系统方案、开发协作",
-    "AI营销": "GEO内容生成、文章改造、结构化数据、信源建设、数据监测、增长诊断、合规风险",
+    "AI营销": "课程定位、设计、售卖、运营，GEO内容、信源建设、数据监测与增长诊断",
     "AI思考": "批判思维、记忆宫殿、标题灵感、思维工具",
 }
 
@@ -114,6 +115,10 @@ REPRESENTATIVE_SLUGS = {
         "ai-system-architect",
     ],
     "AI营销": [
+        "mission-positioning",
+        "course-title",
+        "course-launch-campaign",
+        "learner-lifetime-value",
         "ai-search-user-behavior-analysis",
         "marketing-paradigm-transition-assessment",
         "geo-content-factory-builder",
@@ -144,6 +149,13 @@ FEATURED_NOTES_URLS = {
 
 COLLECTIONS = [
     {
+        "kicker": "书籍配套 · 姚金刚",
+        "title": "《课程营销学》17 套配套提示词",
+        "description": "从定位、设计到售卖、运营，按书籍章节找到当前任务。专题页面支持搜索、筛选、编辑、一键复制和下载离线 HTML，并附逐章使用指南与英文译本。",
+        "href": "course-marketing.html",
+        "meta": "17 套",
+    },
+    {
         "kicker": "专题入口",
         "title": "36 个内容与运营提示词",
         "description": "新增的 36 个提示词已直接并入 AI内容目录，采用与仓库其他文件一致的命名方式，覆盖短视频文案、人设风格、平台运营、行业内容、直播转化、私域成交、AI绘画、数据复盘和爆款重构。",
@@ -152,10 +164,10 @@ COLLECTIONS = [
     },
     {
         "kicker": "English",
-        "title": "English README and 118 Prompts",
-        "description": "英文说明文档与 118 个英文提示词已放在 prompts-en 独立目录中，路径与中文提示词库一一对应，便于海外读者直接浏览和复制使用。",
+        "title": f"English README and {ENGLISH_COUNT} Prompts",
+        "description": f"英文说明文档与 {ENGLISH_COUNT} 个英文提示词已放在 prompts-en 独立目录中，路径与中文提示词库一一对应，便于海外读者直接浏览和复制使用。",
         "href": f"{REPO_URL}/blob/main/prompts-en/README.md",
-        "meta": "118 EN",
+        "meta": f"{ENGLISH_COUNT} EN",
     },
     {
         "kicker": "AI营销",
@@ -456,6 +468,7 @@ def build_html(prompts: list[Prompt]) -> str:
     .brand-mark i:nth-child(8) {{ background: #dc2626; }}
     .nav {{
       display: flex;
+      max-width: 100%;
       align-items: center;
       gap: 8px;
       overflow-x: auto;
@@ -927,7 +940,7 @@ def build_html(prompts: list[Prompt]) -> str:
       <div class="hero-grid">
         <div>
           <h1>提示词类型与代表提示词导航</h1>
-          <p>从当前开源库中抽取 9 类提示词结构，展示每类的用途、规模和代表样例。当前重点推荐「智能元提示词设计与优化系统 V1.0」，支持从需求生成提示词，也支持诊断、重构和优化已有提示词；仓库同步提供 118 个英文提示词镜像入口。</p>
+          <p>从当前开源库中抽取 9 类提示词结构，展示每类的用途、规模和代表样例。新增《课程营销学》17 套书籍配套提示词，支持在线编辑、一键复制与离线使用。仓库同步提供 {ENGLISH_COUNT} 个英文提示词镜像入口。</p>
           <div class="hero-actions">
             <a class="button" href="#AI方法">查看类型</a>
             <a class="button secondary" href="{REPO_URL}/blob/main/CATALOG.md" target="_blank" rel="noreferrer">完整目录</a>

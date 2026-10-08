@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="姚金刚《课程营销学》17套配套提示词，涵盖定位、设计、售卖与运营，支持搜索、编辑、复制和离线使用。">
+  <title>课程营销学 · 17 套配套提示词 | Yao Open Prompts</title>
+  <style>
+    :root { color-scheme: light; --bg: #f7f7f4; --paper: #fff; --ink: #171717; --muted: #62666d; --line: #deded7; --soft: #ecece6; --accent: #166b49; --tint: #edf5ef; --radius: 7px; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", sans-serif; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-underline-offset: 4px; }
+    button, input, textarea { font: inherit; }
+    button, .action { min-height: 42px; cursor: pointer; touch-action: manipulation; border: 1px solid var(--line); border-radius: var(--radius); padding: 8px 13px; background: var(--paper); color: var(--ink); line-height: 1.4; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+    button:active, .action:active { transform: scale(.97); }
+    button:disabled { opacity: .45; cursor: default; }
+    button:disabled:active { transform: none; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    [hidden] { display: none !important; }
+    .shell { width: min(1180px, calc(100% - 40px)); margin: auto; }
+    .skip { position: absolute; top: -80px; left: 20px; z-index: 20; background: var(--paper); padding: 10px; }
+    .skip:focus { top: 10px; }
+    .topbar { border-bottom: 1px solid var(--line); }
+    .topbar .shell { min-height: 72px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 12px; }
+    .brand { font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+    .mark { display: grid; grid-template-columns: repeat(3, 6px); gap: 3px; }
+    .mark i { width: 6px; height: 6px; background: var(--ink); border-radius: 1px; }
+    .mark i:nth-child(2) { background: #2563eb; } .mark i:nth-child(4) { background: #16a34a; } .mark i:nth-child(8) { background: #dc2626; }
+    .top-links { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; font-size: 13px; }
+    .top-links a { display: inline-flex; align-items: center; min-height: 40px; }
+    .top-links button { font-size: 13px; }
+    .intro { padding-block: 38px 26px; display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 40px; align-items: center; }
+    .eyebrow { margin: 0 0 10px; color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: .1em; }
+    h1 { margin: 0; font-family: "Songti SC", "Noto Serif SC", serif; font-size: clamp(30px, 4vw, 48px); font-weight: 600; line-height: 1.3; }
+    .intro p:last-child { color: var(--muted); font-size: 15px; margin: 12px 0 0; max-width: 65ch; }
+    .edition { border-top: 2px solid var(--ink); padding-top: 14px; display: flex; align-items: center; gap: 16px; }
+    .edition strong { font-size: 60px; line-height: 1; font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: -.04em; }
+    .edition span { color: var(--muted); font-size: 12px; }
+    .stages { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-block: 1px solid var(--line); margin-bottom: 26px; }
+    .stage { padding: 17px 16px; text-align: left; border: 0; border-radius: 0; background: transparent; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .stage + .stage { border-left: 1px solid var(--line); }
+    .stage[aria-pressed="true"] { background: var(--tint); color: var(--accent); }
+    .stage small { color: var(--muted); display: block; font-size: 11px; margin-bottom: 4px; }
+    .stage b { font-size: 18px; font-weight: 600; }
+    .stage em { font-style: normal; color: var(--muted); font-size: 12px; white-space: nowrap; }
+    .workspace { display: grid; grid-template-columns: 298px minmax(0, 1fr); gap: 28px; align-items: start; }
+    .catalog { min-width: 0; }
+    .search-label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 7px; }
+    #search { width: 100%; border: 1px solid var(--line); border-radius: var(--radius); padding: 10px 12px; background: var(--paper); color: var(--ink); font-size: 14px; }
+    .catalog-tools { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 12px; color: var(--muted); margin-block: 10px 12px; }
+    .catalog-tools button { border: 0; padding: 8px 0; background: transparent; color: var(--accent); font-size: 12px; }
+    .chapter-list { border-top: 1px solid var(--line); }
+    .chapter { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 10px; padding: 12px 10px; border-bottom: 1px solid var(--line); text-decoration: none; font-size: 13px; line-height: 1.6; }
+    .chapter[aria-current="true"] { background: var(--tint); color: var(--accent); }
+    .chapter strong { font-variant-numeric: tabular-nums; font-size: 12px; font-weight: 500; }
+    .chapter span { overflow-wrap: anywhere; }
+    .empty { color: var(--muted); padding: 20px 8px; font-size: 14px; }
+    .editor { padding: 25px 28px; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); min-width: 0; scroll-margin-top: 18px; }
+    .editor-meta { color: var(--accent); font-size: 12px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+    .editor-meta span { font-variant-numeric: tabular-nums; }
+    h2 { margin: 0; line-height: 1.45; font-size: clamp(22px, 2.6vw, 29px); font-weight: 650; overflow-wrap: anywhere; }
+    .brief { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin: 22px 0; padding-block: 17px; border-block: 1px solid var(--line); }
+    .brief dt { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .brief dd { margin: 0; font-size: 13px; line-height: 1.8; }
+    .prompt-label { font-size: 12px; font-weight: 600; display: block; }
+    .hint { color: var(--muted); font-size: 12px; margin: 5px 0 12px; }
+    #prompt { width: 100%; min-height: 410px; padding: 17px; resize: vertical; border: 1px solid var(--line); border-radius: 4px; background: #fafaf7; color: #282b28; font-family: ui-monospace, "SFMono-Regular", "PingFang SC", monospace; font-size: 13px; line-height: 1.9; tab-size: 2; }
+    .toolbar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 12px; }
+    .primary { border-color: var(--accent); background: var(--accent); color: var(--paper); }
+    .toolbar button { font-size: 13px; }
+    #status { min-height: 22px; color: var(--accent); font-size: 12px; margin: 8px 0 0; }
+    .followup { background: var(--tint); padding: 15px 17px; margin: 18px 0; }
+    .followup p { font-size: 13px; margin: 5px 0 0; }
+    .followup span { color: var(--accent); font-size: 11px; font-weight: 650; }
+    .pager { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); padding-top: 10px; }
+    .pager button { border: 0; background: transparent; padding-inline: 0; font-size: 12px; text-align: left; }
+    .guide { margin-top: 36px; padding-block: 28px 12px; border-top: 1px solid var(--line); scroll-margin-top: 20px; }
+    .guide-head { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .guide-head a { font-size: 13px; }
+    .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; padding: 0; list-style: none; margin: 22px 0; counter-reset: steps; }
+    .steps li { counter-increment: steps; font-size: 13px; color: var(--muted); }
+    .steps li::before { content: "0" counter(steps); display: block; font-size: 12px; color: var(--accent); margin-bottom: 8px; font-variant-numeric: tabular-nums; }
+    .steps b { display: block; color: var(--ink); font-size: 15px; margin-bottom: 6px; }
+    .source-note { border-top: 1px solid var(--line); padding-top: 15px; color: var(--muted); font-size: 12px; line-height: 1.9; }
+    footer { padding-block: 24px 32px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--muted); font-size: 12px; }
+    noscript pre { white-space: pre-wrap; overflow-wrap: anywhere; background: var(--paper); padding: 20px; }
+    @media (hover: hover) { button:hover, .action:hover { background: var(--soft); } .primary:hover { background: #105538; } .chapter:hover { background: var(--soft); } }
+    @media (max-width: 900px) { .workspace { grid-template-columns: 245px minmax(0, 1fr); gap: 18px; } .editor { padding: 20px; } .intro { gap: 20px; grid-template-columns: minmax(0, 1fr) 180px; } .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 680px) { .shell { width: calc(100% - 28px); } .topbar .shell { gap: 5px; } .top-links { gap: 13px; } .intro { grid-template-columns: 1fr; gap: 20px; padding-block: 26px 20px; } .edition { justify-self: start; padding-top: 10px; } .edition strong { font-size: 42px; } .stages { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 20px; } .stage { padding: 12px; } .stage:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); } .stage:nth-child(4) { border-top: 1px solid var(--line); } .workspace { grid-template-columns: 1fr; gap: 20px; } .chapter-list { max-height: 235px; overflow-y: auto; overscroll-behavior: contain; } .editor { padding: 18px 15px; } .brief { grid-template-columns: 1fr; gap: 12px; margin-block: 16px; } #prompt { min-height: 360px; font-size: 12px; } .steps { gap: 18px; } }
+    @media (max-width: 680px) { .stage { display: block; } .stage em { display: block; margin-top: 6px; } }
+    @media (prefers-reduced-motion: reduce) { button:active, .action:active { transform: none; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#editor" data-i18n="skip">跳到提示词正文</a>
+  <header class="topbar">
+    <div class="shell">
+      <a class="brand" href="https://yaojingang.github.io/yao-open-prompts/">
+        <span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>Yao Open Prompts
+      </a>
+      <nav class="top-links" aria-label="专题导航" id="top-nav">
+        <a href="https://yaojingang.github.io/yao-open-prompts/" data-i18n="home">全部提示词</a>
+        <a href="#guide" data-i18n="guide">使用指南</a>
+        <a href="https://github.com/yaojingang/yao-open-prompts" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <button id="language" type="button" aria-label="Switch to English">English</button>
+      </nav>
+    </div>
+  </header>
+  <main class="shell">
+    <section class="intro">
+      <div>
+        <p class="eyebrow" lang="en">COURSE MARKETING / BOOK COMPANION</p>
+        <h1 data-i18n="title">课程营销学 · 配套提示词</h1>
+        <p data-i18n="intro">把一门课从想法推进到长期经营。按当前任务选择章节，填入真实信息，与 AI 一起打磨你的课程。</p>
+      </div>
+      <div class="edition"><strong>17</strong><span data-i18n="edition">套独立提示词<br>作者 姚金刚 · CC BY 4.0</span></div>
+    </section>
+    <nav class="stages" id="stages" aria-label="按篇筛选"></nav>
+    <div class="workspace">
+      <aside class="catalog" aria-label="章节目录" id="catalog">
+        <label class="search-label" for="search" data-i18n="searchLabel">查找当前要解决的问题</label>
+        <input id="search" type="search" placeholder="搜索章节、标题或关键词" autocomplete="off">
+        <div class="catalog-tools"><span id="result-count" role="status" aria-live="polite"></span><button type="button" id="clear" data-i18n="clear">显示全部</button></div>
+        <nav class="chapter-list" id="chapters" aria-label="提示词章节"></nav>
+        <p class="empty" id="empty" hidden data-i18n="empty">没有找到匹配章节，请换个关键词或显示全部。</p>
+      </aside>
+      <section class="editor" id="editor" tabindex="-1" aria-labelledby="prompt-title">
+        <div class="editor-meta"><span id="chapter-meta"></span><a id="source-link" href="https://github.com/yaojingang/yao-open-prompts/tree/main/prompts/08-ai-marketing/course-marketing" target="_blank" rel="noreferrer" data-i18n="source">查看 Markdown ↗</a></div>
+        <h2 id="prompt-title">选择一个章节开始</h2>
+        <dl class="brief"><div><dt data-i18n="inputs">准备这些信息</dt><dd id="input-info"></dd></div><div><dt data-i18n="output">你会得到</dt><dd id="output-info"></dd></div></dl>
+        <label class="prompt-label" for="prompt" data-i18n="promptLabel">可编辑的提示词正文</label>
+        <p class="hint" data-i18n="hint">把 {示例} 替换为真实信息，包括输出标题中的名称。编辑内容保留在当前会话中。</p>
+        <textarea id="prompt" spellcheck="false" aria-describedby="edit-hint"></textarea>
+        <span id="edit-hint" hidden data-i18n="hint">把示例替换为真实信息。编辑内容保留在当前会话中。</span>
+        <div class="toolbar"><button type="button" class="primary" id="copy" data-i18n="copy">复制提示词</button><button type="button" id="download" data-i18n="download">下载正文 .txt</button><button type="button" id="reset" data-i18n="reset">恢复原文</button><button type="button" id="offline" data-i18n="offline">下载离线 HTML</button></div>
+        <p id="status" role="status" aria-live="polite"></p>
+        <div class="followup"><span data-i18n="followup">得到初稿后，可以这样追问</span><p id="followup-text"></p></div>
+        <div class="pager"><button type="button" id="prev"></button><button type="button" id="next"></button></div>
+      </section>
+    </div>
+    <section class="guide" id="guide" aria-labelledby="guide-title">
+      <div class="guide-head"><h2 id="guide-title" data-i18n="guideTitle">从一份具体的课程简报开始</h2><a id="guide-link" href="https://github.com/yaojingang/yao-open-prompts/blob/main/references/course-marketing-guide.md" data-i18n="fullGuide">完整使用指南 ↗</a></div>
+      <ol class="steps" id="steps"></ol>
+      <p class="source-note" data-i18n="sourceNote">原稿有 18 个小节。3.5 发售与 2.6 交付的正文及使用说明相同，本页收录 17 套独立模板，保留原书编号。阅读 3.5 时可参考 2.6；独立的 3.5 模板待作者补充。中文正文保留原文，英文提供对应译本。</p>
+      <p class="source-note" data-i18n="validation">请用真实调研核实市场、价格和学员需求。案例、背书、效果描述与服务承诺应有依据。章节标题中的倍数沿用原书表述，具体效果取决于课程与执行。</p>
+    </section>
+    <noscript><p>浏览器未启用 JavaScript，可展开下方章节复制原文。Browser scripting is disabled. Expand a chapter below to copy the Chinese source.</p><!-- NO_SCRIPT_PROMPTS --></noscript>
+  </main>
+  <footer class="shell"><span data-i18n="credit">《课程营销学》配套提示词 · 姚金刚</span><span><a href="https://github.com/yaojingang/yao-open-prompts/blob/main/LICENSE">CC BY 4.0</a> · <span data-i18n="attribution">分享与改编请保留作者和来源</span></span></footer>
+  <script type="application/json" id="prompt-data"><!-- PROMPT_DATA --></script>
+  <script>
+    'use strict';
+    const entries = JSON.parse(document.getElementById('prompt-data').textContent);
+    const originalHTML = '<!doctype html>\n' + document.documentElement.outerHTML;
+    const repo = 'https://github.com/yaojingang/yao-open-prompts/blob/main/';
+    const $ = id => document.getElementById(id);
+    const copy = {
+      zh: {
+        title: '课程营销学 · 配套提示词', intro: '把一门课从想法推进到长期经营。按当前任务选择章节，填入真实信息，与 AI 一起打磨你的课程。',
+        edition: '套独立提示词\n作者 姚金刚 · CC BY 4.0', home: '全部提示词', guide: '使用指南', skip: '跳到提示词正文', searchLabel: '查找当前要解决的问题', placeholder: '搜索章节、标题或关键词', clear: '显示全部', empty: '没有找到匹配章节，请换个关键词或显示全部。',
+        source: '查看 Markdown ↗', inputs: '准备这些信息', output: '你会得到', promptLabel: '可编辑的提示词正文', hint: '把 {示例} 替换为真实信息，包括输出标题中的名称。编辑内容保留在当前会话中。',
+        copy: '复制提示词', download: '下载正文 .txt', reset: '恢复原文', offline: '下载离线 HTML', followup: '得到初稿后，可以这样追问', guideTitle: '从一份具体的课程简报开始', fullGuide: '完整使用指南 ↗',
+        sourceNote: '原稿有 18 个小节。3.5 发售与 2.6 交付的正文及使用说明相同，本页收录 17 套独立模板，保留原书编号。阅读 3.5 时可参考 2.6；独立的 3.5 模板待作者补充。中文正文保留原文，英文提供对应译本。',
+        validation: '请用真实调研核实市场、价格和学员需求。案例、背书、效果描述与服务承诺应有依据。章节标题中的倍数沿用原书表述，具体效果取决于课程与执行。', credit: '《课程营销学》配套提示词 · 姚金刚', attribution: '分享与改编请保留作者和来源',
+        stageNames: ['定位篇', '设计篇', '售卖篇', '运营篇'], stageSub: ['找到你与用户的连接', '把专业转化为学习体验', '让课程被看见与选择', '积累口碑与长期价值'], count: n => `${n} 套`, result: n => `显示 ${n} / 17 套`,
+        previous: '← 上一章', next: '下一章 →', copied: '已复制，可粘贴到你的对话模型。', manual: '已选中正文，请按 ⌘C 或 Ctrl+C 复制。', restored: '已恢复原文。', downloaded: '已下载当前编辑的正文。', offlineDone: '已下载离线页面，包含全部 17 套原始模板。',
+        steps: [['选择章节', '先明确目标用户和课程痛点，再逐步设计、发售与运营。'], ['填入真实信息', '准备专业经验、用户画像、课程目标、已有材料与可投入时间。'], ['与 AI 对话', '粘贴正文并回答追问。使命定位可要求 AI 等待你的真实回答。'], ['验证再推进', '选定一个方案，补充具体要求，用访谈和执行结果继续调整。']]
+      },
+      en: {
+        title: 'Course Marketing companion prompts', intro: 'Develop a course from its first idea to long-term operation. Choose a task, add real information, and refine your course with AI.', edition: 'distinct templates\nYao Jingang · CC BY 4.0', home: 'All prompts', guide: 'Usage guide', skip: 'Skip to prompt', searchLabel: 'Find the task you want to work on', placeholder: 'Search chapters, titles, or keywords', clear: 'Show all', empty: 'No matching chapters. Try another keyword or show all.',
+        source: 'View Markdown ↗', inputs: 'Prepare', output: 'Expected output', promptLabel: 'Editable prompt', hint: 'Replace {examples} with real information, including names in output headings. Edits remain in this page session.', copy: 'Copy prompt', download: 'Download .txt', reset: 'Restore original', offline: 'Download offline HTML', followup: 'A suggested follow-up question', guideTitle: 'Start with a specific course brief', fullGuide: 'Full usage guide ↗',
+        sourceNote: 'The manuscript contains 18 chapter entries. Chapter 3.5 repeats the prompt and instructions from 2.6. This page includes 17 distinct templates with the original chapter numbers. Refer to 2.6 when reading 3.5; a separate 3.5 template awaits author input. Chinese bodies preserve the source; English editions provide translations.',
+        validation: 'Validate markets, prices, and learner needs through research. Support examples, endorsements, outcome claims, and service promises with evidence. Multipliers in the Chinese chapter titles come from the book; results depend on the course and execution.', credit: 'Course Marketing companion prompts · Yao Jingang', attribution: 'Retain author and source when sharing or adapting',
+        stageNames: ['Positioning', 'Design', 'Sales', 'Operations'], stageSub: ['Connect with your learners', 'Design a learning experience', 'Reach potential learners', 'Build lasting learner value'], count: n => `${n} prompts`, result: n => `${n} of 17 prompts`, previous: '← Previous', next: 'Next →', copied: 'Copied. Paste into your conversational model.', manual: 'Text selected. Press ⌘C or Ctrl+C to copy.', restored: 'Original restored.', downloaded: 'Downloaded your current edited prompt.', offlineDone: 'Offline page downloaded with all 17 original templates.',
+        steps: [['Choose a chapter', 'Define your audience and their pain point, then work through design, sales, and operations.'], ['Add real information', 'Prepare your experience, learner profile, course goals, materials, and available time.'], ['Talk with AI', 'Paste the prompt and answer questions. For mission positioning, ask AI to wait for your real answers.'], ['Validate and refine', 'Choose a proposal, request specific changes, and refine it through interviews and practical results.']]
+      }
+    };
+    let lang = new URLSearchParams(location.search).get('lang') === 'en' ? 'en' : 'zh';
+    let stage = 0;
+    let selected = entries[0];
+    const edits = new Map();
+    let renderedKey = '';
+    const text = () => copy[lang];
+    const key = () => selected.slug + ':' + lang;
+    const chapterHash = entry => '#' + entry.zh.chapter.replace('.', '-');
+    function remember() { if (renderedKey) edits.set(renderedKey, $('prompt').value); }
+    function showPrompt() {
+      const item = selected[lang];
+      renderedKey = key();
+      $('chapter-meta').textContent = text().stageNames[item.stage - 1] + ' / ' + item.chapter;
+      $('prompt-title').textContent = item.title;
+      $('input-info').textContent = item.inputs;
+      $('output-info').textContent = item.output;
+      $('followup-text').textContent = item.followup;
+      $('prompt').value = edits.get(renderedKey) ?? item.prompt;
+      $('source-link').href = repo + item.path;
+      $('status').textContent = '';
+      const index = entries.indexOf(selected);
+      $('prev').disabled = index === 0; $('next').disabled = index === entries.length - 1;
+      $('prev').textContent = text().previous; $('next').textContent = text().next;
+    }
+    function renderList() {
+      const query = $('search').value.trim().toLocaleLowerCase();
+      const visible = entries.filter(entry => {
+        const item = entry[lang];
+        return (!stage || item.stage === stage) && (!query || [item.chapter, item.title, item.inputs, item.output, item.prompt].join(' ').toLocaleLowerCase().includes(query));
+      });
+      $('chapters').replaceChildren(...visible.map(entry => {
+        const link = document.createElement('a');
+        link.href = chapterHash(entry); link.className = 'chapter';
+        link.setAttribute('aria-current', String(entry === selected));
+        const number = document.createElement('strong'); number.textContent = entry[lang].chapter;
+        const title = document.createElement('span'); title.textContent = entry[lang].title;
+        link.append(number, title);
+        link.addEventListener('click', event => {
+          if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+          event.preventDefault(); choose(entry);
+          if (matchMedia('(max-width: 680px)').matches) { $('editor').scrollIntoView(); $('editor').focus({preventScroll: true}); }
+        });
+        return link;
+      }));
+      $('result-count').textContent = text().result(visible.length);
+      $('empty').hidden = visible.length > 0;
+    }
+    function renderStages() {
+      $('stages').replaceChildren(...[1, 2, 3, 4].map(number => {
+        const button = document.createElement('button'); button.type = 'button'; button.className = 'stage';
+        button.setAttribute('aria-pressed', String(stage === number));
+        const label = document.createElement('span');
+        const sub = document.createElement('small'); sub.textContent = '0' + number + ' / ' + text().stageSub[number - 1];
+        const name = document.createElement('b'); name.textContent = text().stageNames[number - 1];
+        const count = document.createElement('em'); count.textContent = text().count(entries.filter(e => e[lang].stage === number).length);
+        label.append(sub, name); button.append(label, count);
+        button.addEventListener('click', () => { stage = stage === number ? 0 : number; renderStages(); renderList(); });
+        return button;
+      }));
+    }
+    function updateURL() {
+      const url = new URL(location.href);
+      if (lang === 'en') url.searchParams.set('lang', 'en'); else url.searchParams.delete('lang');
+      url.hash = chapterHash(selected);
+      if (url.href !== location.href) {
+        try { history.pushState(null, '', url); } catch { location.hash = chapterHash(selected); }
+      }
+    }
+    function choose(entry) { remember(); selected = entry; updateURL(); showPrompt(); renderList(); }
+    function localize() {
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+      document.title = text().title + ' | Yao Open Prompts';
+      document.querySelectorAll('[data-i18n]').forEach(element => { element.textContent = text()[element.dataset.i18n]; });
+      document.querySelector('.edition span').style.whiteSpace = 'pre-line';
+      $('search').placeholder = text().placeholder;
+      $('language').textContent = lang === 'zh' ? 'English' : '中文';
+      $('language').setAttribute('aria-label', lang === 'zh' ? 'Switch to English' : '切换为中文');
+      for (const [id, zh, en] of [['top-nav', '专题导航', 'Collection navigation'], ['stages', '按篇筛选', 'Filter by stage'], ['catalog', '章节目录', 'Chapter directory'], ['chapters', '提示词章节', 'Prompt chapters']]) $(id).setAttribute('aria-label', lang === 'zh' ? zh : en);
+      $('guide-link').href = repo + 'references/course-marketing-guide' + (lang === 'en' ? '.en' : '') + '.md';
+      $('steps').replaceChildren(...text().steps.map(([title, description]) => { const li = document.createElement('li'); const b = document.createElement('b'); b.textContent = title; li.append(b, document.createTextNode(description)); return li; }));
+      renderStages(); renderList(); showPrompt();
+    }
+    function navigateFromURL() {
+      remember();
+      lang = new URLSearchParams(location.search).get('lang') === 'en' ? 'en' : 'zh';
+      const raw = location.hash.slice(1).replace('-', '.');
+      const chapter = raw === '3.5' ? '2.6' : raw;
+      selected = entries.find(entry => entry.zh.chapter === chapter) || selected;
+      localize();
+    }
+    function downloadFile(content, filename, type) {
+      const url = URL.createObjectURL(new Blob([content], {type}));
+      const link = document.createElement('a'); link.href = url; link.download = filename;
+      document.body.append(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 2000);
+    }
+    $('search').addEventListener('input', renderList);
+    $('prompt').addEventListener('input', () => { edits.set(key(), $('prompt').value); $('status').textContent = ''; });
+    $('clear').addEventListener('click', () => { stage = 0; $('search').value = ''; renderStages(); renderList(); });
+    $('language').addEventListener('click', () => { remember(); lang = lang === 'zh' ? 'en' : 'zh'; $('search').value = ''; updateURL(); localize(); });
+    $('copy').addEventListener('click', async () => {
+      try {
+        if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
+        await navigator.clipboard.writeText($('prompt').value); $('status').textContent = text().copied;
+      } catch {
+        $('prompt').focus(); $('prompt').select();
+        let succeeded = false; try { succeeded = document.execCommand('copy'); } catch {}
+        $('status').textContent = succeeded ? text().copied : text().manual;
+      }
+    });
+    $('reset').addEventListener('click', () => { edits.delete(key()); $('prompt').value = selected[lang].prompt; $('status').textContent = text().restored; });
+    $('download').addEventListener('click', () => {
+      const attribution = lang === 'zh' ? '\n\n来源：《课程营销学》配套提示词 · 作者：姚金刚 · CC BY 4.0\n' : '\n\nSource: Course Marketing companion prompts · Author: Yao Jingang · CC BY 4.0\n';
+      downloadFile($('prompt').value + attribution, selected.slug + '-' + lang + '.txt', 'text/plain;charset=utf-8'); $('status').textContent = text().downloaded;
+    });
+    $('offline').addEventListener('click', () => { downloadFile(originalHTML, 'course-marketing.html', 'text/html;charset=utf-8'); $('status').textContent = text().offlineDone; });
+    $('prev').addEventListener('click', () => { const index = entries.indexOf(selected); if (index > 0) choose(entries[index - 1]); });
+    $('next').addEventListener('click', () => { const index = entries.indexOf(selected); if (index < entries.length - 1) choose(entries[index + 1]); });
+    addEventListener('hashchange', navigateFromURL);
+    addEventListener('popstate', navigateFromURL);
+    navigateFromURL();
+  </script>
+</body>
+</html>

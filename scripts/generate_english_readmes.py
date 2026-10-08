@@ -16,7 +16,7 @@ CATEGORY_DESCRIPTIONS = {
     "AI Education": "Children education, interactive learning pages, and educational games.",
     "AI Content": "Writing, copywriting, platform operations, industry content, image prompts, and content review.",
     "AI Coding": "Architecture design and AI-assisted software engineering.",
-    "AI Marketing": "GEO, AI search optimization, article transformation, source authority, metrics, growth diagnosis, and compliance.",
+    "AI Marketing": "Course positioning, design, sales, operations, GEO, source authority, metrics, growth diagnosis, and compliance.",
     "AI Thinking": "Critical thinking, memory palaces, title thinking, and reasoning tools.",
 }
 CATEGORY_ORDER = list(CATEGORY_DESCRIPTIONS)
@@ -60,6 +60,8 @@ def main() -> None:
         "",
         f"Current English prompt files: **{len(files)}**.",
         "",
+        "[Course Marketing: 17 companion prompts](08-ai-marketing/course-marketing/README.md) · [Interactive navigator](https://yaojingang.github.io/yao-open-prompts/course-marketing.html?lang=en)",
+        "",
         "## Categories",
         "",
         "| Category | Count | Description |",
@@ -101,6 +103,11 @@ def main() -> None:
             "| Prompt | Subcategory | Source |",
             "| --- | --- | --- |",
         ]
+        if category_dir.name == "08-ai-marketing":
+            lines[6:6] = [
+                "[Course Marketing: 17 companion prompts](course-marketing/README.md) · [Interactive navigator and usage guide](https://yaojingang.github.io/yao-open-prompts/course-marketing.html?lang=en)",
+                "",
+            ]
         for path in dir_files:
             fm, body = parse_frontmatter(path)
             rel = path.relative_to(category_dir).as_posix()

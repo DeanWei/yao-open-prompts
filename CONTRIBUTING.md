@@ -12,9 +12,19 @@
 python3 scripts/check_repo.py
 python3 scripts/generate_catalog.py
 python3 scripts/generate_webpage.py
+python3 scripts/generate_english_readmes.py
+python3 scripts/generate_course_marketing.py
 ```
 
-## 版本规则
+## 《课程营销学》专题维护
+
+- 中文文件位于 `prompts/08-ai-marketing/course-marketing/`，英文文件保持相同相对路径。
+- 每个文件保留 `book_chapter/inputs/output/followup` 字段，分别用于章节排序、输入说明、预期产出和可选追问。
+- `templates/course-marketing.html` 是页面模板，生成脚本读取中英文 Markdown 正文，写入 `docs/course-marketing.html`。修改后提交模板、正文与生成页面。
+- 保留原书章节编号。原稿 3.5 与 2.6 重复的说明见 `references/course-marketing-guide.md`，新增独立原稿时同步调整专题数量、生成校验、页面指南与目录。
+- 发布前检查桌面、手机和 `file://` 离线页面的搜索、筛选、编辑、复制与下载功能。
+
+## 提示词版本规则
 
 - 小修文字、去冗余：`V1.0 -> V1.1`
 - 明显改写结构或新增流程：`V1.x -> V2.0`

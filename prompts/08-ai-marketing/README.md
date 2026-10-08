@@ -1,6 +1,14 @@
 # AI营销目录
 
-本目录存放 GEO、AI搜索优化、结构化数据、信源建设、数据监测、增长诊断和合规风险等 AI 营销类提示词。
+本目录存放课程营销、GEO、AI 搜索优化、结构化数据、信源建设、数据监测、增长诊断和合规风险等 AI 营销类提示词，当前共 46 套。
+
+## 《课程营销学》书籍专题
+
+[17 套配套提示词目录](course-marketing/README.md) · [独立 HTML 导航](https://yaojingang.github.io/yao-open-prompts/course-marketing.html) · [使用指南](../../references/course-marketing-guide.md)
+
+姚金刚创作，按原书章节分为定位 4 套、设计 6 套、售卖 4 套、运营 3 套，收录在 `course-marketing/` 中。网页支持搜索、编辑、复制和离线使用。原稿 3.5 与 2.6 重复，详见专题整理说明。
+
+## GEO 提示词
 
 其中《AI营销：从SEO到GEO》提示词合集已拆分为 25 个独立 Markdown 文件，并按机会、原理、内容、信源、数据、增长、风险七组归类。
 

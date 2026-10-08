@@ -5,6 +5,8 @@
 - [ ] 运行 `python3 scripts/check_repo.py`。
 - [ ] 运行 `python3 scripts/generate_catalog.py`。
 - [ ] 运行 `python3 scripts/generate_webpage.py`。
+- [ ] 运行 `python3 scripts/generate_english_readmes.py` 与 `python3 scripts/generate_course_marketing.py`。
+- [ ] 检查《课程营销学》专题的中英文入口、移动端、复制下载与离线使用。
 - [ ] 检查 `CATALOG.md` 链接。
 - [ ] 检查 `docs/index.html` 页面渲染。
 - [ ] 更新 `CHANGELOG.md`。

@@ -4,7 +4,7 @@
 
 《姚金刚提示词合集》的开源版本，一个覆盖提示词工程、工作、学习、内容、营销和生活场景的中英双语 AI 提示词库。
 
-本仓库从原始合集文档和后续提示词目录中整理出 **118** 个中文提示词文件，并按场景重新分类。每个提示词保留可复制的正文，去除了原文中不适合放入开源仓库主体的教程推广、效果截图、视频附件说明和 HTML 样式残留。
+本仓库从原始合集文档、书籍配套模板和后续提示词目录中整理出 **135** 个中文提示词文件，并按场景重新分类。每个提示词保留可复制的正文，去除了原文中不适合放入开源仓库主体的教程推广、效果截图、视频附件说明和 HTML 样式残留。
 
 系列型内容会优先合并成主题合集，例如 `50个 Nano Banana 创意提示词` 和 `Nano Banana PPT 场景提示词合集`，避免仓库目录被大量零散短提示词打散。
 
@@ -20,11 +20,13 @@
 
 ## 专题入口
 
+**[《课程营销学》17 套配套提示词](prompts/08-ai-marketing/course-marketing/README.md)**：姚金刚创作，按定位 4 套、设计 6 套、售卖 4 套、运营 3 套组织。打开[独立 HTML 导航](https://yaojingang.github.io/yao-open-prompts/course-marketing.html)可搜索、筛选、编辑和一键复制，也可下载后离线使用。另附[逐章使用指南](references/course-marketing-guide.md)和[英文译本](prompts-en/08-ai-marketing/course-marketing/README.md)。原稿 3.5 与 2.6 内容重复，已保留对应说明并按独立正文去重。
+
 **[36 个内容与运营提示词](prompts/06-ai-content/README.md)**：新增提示词已直接并入 `prompts/06-ai-content/`，采用与仓库其他提示词一致的文件命名方式，覆盖短视频文案、人设风格、平台运营、行业内容、直播转化、私域成交、AI 绘画、数据复盘和爆款重构。
 
 **[25 个 GEO 营销实战模板](prompts/08-ai-marketing/README.md)**：从《AI营销：从SEO到GEO》提示词合集拆分，覆盖机会判断、原理分析、内容工程、信源建设、数据监测、增长诊断和合规风险。
 
-**[English README](README.en.md)**：英文说明文档入口，对应导航到 [118 个英文提示词](prompts-en/README.md)，英文提示词按 `prompts/` 的相同路径完整镜像在 `prompts-en/` 下。
+**[English README](README.en.md)**：英文说明文档入口，对应导航到 [135 个英文提示词](prompts-en/README.md)，英文提示词按 `prompts/` 的相同路径完整镜像在 `prompts-en/` 下。
 
 ## 仓库结构
 
@@ -53,7 +55,7 @@ CONTRIBUTING.md         # 贡献和持续迭代规则
 | AI教育 | 4 | 儿童教育、互动学习页面和小游戏创作。 |
 | AI内容 | 50 | 写作、润色、标题、公众号 HTML、短视频、内容运营、图像和 PPT 创意。 |
 | AI编程 | 1 | 架构设计和编程协作。 |
-| AI营销 | 29 | GEO 内容生成、文章改造、结构化数据、信源建设、数据监测、增长诊断和合规风险。 |
+| AI营销 | 46 | 课程定位、设计、售卖与运营，GEO 内容、信源建设、数据监测、增长诊断和合规风险。 |
 | AI思考 | 3 | 批判思维、记忆、标题和思维类灵感提示词。 |
 
 完整目录见 [CATALOG.md](CATALOG.md)。
@@ -91,6 +93,8 @@ tags: 标签列表
 - 质量检查：运行 `python3 scripts/check_repo.py`。
 - 重建目录：运行 `python3 scripts/generate_catalog.py`。
 - 重建网页：运行 `python3 scripts/generate_webpage.py`。
+- 重建《课程营销学》专题：运行 `python3 scripts/generate_course_marketing.py`。
+- 刷新英文目录：运行 `python3 scripts/generate_english_readmes.py`。
 - 发布节奏：建议使用日期版本，如 `v2026.05.1`，每次发布前走 [release-checklist.md](maintenance/release-checklist.md)。
 
 ## 开源与来源策略

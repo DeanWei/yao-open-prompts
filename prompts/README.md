@@ -11,5 +11,7 @@
 - `05-ai-education`：儿童教育、互动学习页面和游戏创作
 - `06-ai-content`：写作、润色、标题、公众号 HTML、短视频、内容运营、图像和 PPT 创意
 - `07-ai-coding`：架构与编程协作
-- `08-ai-marketing`：GEO 内容生成、结构化数据、信源建设、数据监测、增长诊断和合规风险
+- `08-ai-marketing`：课程定位、设计、售卖与运营，GEO 内容、信源建设、数据监测、增长诊断和合规风险
 - `09-ai-thinking`：批判思维、记忆和标题灵感类提示词
+
+书籍专题：[《课程营销学》17 套配套提示词](08-ai-marketing/course-marketing/README.md)，附[独立网页导航](https://yaojingang.github.io/yao-open-prompts/course-marketing.html)和[使用指南](../references/course-marketing-guide.md)。

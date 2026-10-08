@@ -1,0 +1,918 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="姚金刚《课程营销学》17套配套提示词，涵盖定位、设计、售卖与运营，支持搜索、编辑、复制和离线使用。">
+  <title>课程营销学 · 17 套配套提示词 | Yao Open Prompts</title>
+  <style>
+    :root { color-scheme: light; --bg: #f7f7f4; --paper: #fff; --ink: #171717; --muted: #62666d; --line: #deded7; --soft: #ecece6; --accent: #166b49; --tint: #edf5ef; --radius: 7px; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", sans-serif; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-underline-offset: 4px; }
+    button, input, textarea { font: inherit; }
+    button, .action { min-height: 42px; cursor: pointer; touch-action: manipulation; border: 1px solid var(--line); border-radius: var(--radius); padding: 8px 13px; background: var(--paper); color: var(--ink); line-height: 1.4; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+    button:active, .action:active { transform: scale(.97); }
+    button:disabled { opacity: .45; cursor: default; }
+    button:disabled:active { transform: none; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    [hidden] { display: none !important; }
+    .shell { width: min(1180px, calc(100% - 40px)); margin: auto; }
+    .skip { position: absolute; top: -80px; left: 20px; z-index: 20; background: var(--paper); padding: 10px; }
+    .skip:focus { top: 10px; }
+    .topbar { border-bottom: 1px solid var(--line); }
+    .topbar .shell { min-height: 72px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 12px; }
+    .brand { font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+    .mark { display: grid; grid-template-columns: repeat(3, 6px); gap: 3px; }
+    .mark i { width: 6px; height: 6px; background: var(--ink); border-radius: 1px; }
+    .mark i:nth-child(2) { background: #2563eb; } .mark i:nth-child(4) { background: #16a34a; } .mark i:nth-child(8) { background: #dc2626; }
+    .top-links { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; font-size: 13px; }
+    .top-links a { display: inline-flex; align-items: center; min-height: 40px; }
+    .top-links button { font-size: 13px; }
+    .intro { padding-block: 38px 26px; display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 40px; align-items: center; }
+    .eyebrow { margin: 0 0 10px; color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: .1em; }
+    h1 { margin: 0; font-family: "Songti SC", "Noto Serif SC", serif; font-size: clamp(30px, 4vw, 48px); font-weight: 600; line-height: 1.3; }
+    .intro p:last-child { color: var(--muted); font-size: 15px; margin: 12px 0 0; max-width: 65ch; }
+    .edition { border-top: 2px solid var(--ink); padding-top: 14px; display: flex; align-items: center; gap: 16px; }
+    .edition strong { font-size: 60px; line-height: 1; font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: -.04em; }
+    .edition span { color: var(--muted); font-size: 12px; }
+    .stages { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-block: 1px solid var(--line); margin-bottom: 26px; }
+    .stage { padding: 17px 16px; text-align: left; border: 0; border-radius: 0; background: transparent; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .stage + .stage { border-left: 1px solid var(--line); }
+    .stage[aria-pressed="true"] { background: var(--tint); color: var(--accent); }
+    .stage small { color: var(--muted); display: block; font-size: 11px; margin-bottom: 4px; }
+    .stage b { font-size: 18px; font-weight: 600; }
+    .stage em { font-style: normal; color: var(--muted); font-size: 12px; white-space: nowrap; }
+    .workspace { display: grid; grid-template-columns: 298px minmax(0, 1fr); gap: 28px; align-items: start; }
+    .catalog { min-width: 0; }
+    .search-label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 7px; }
+    #search { width: 100%; border: 1px solid var(--line); border-radius: var(--radius); padding: 10px 12px; background: var(--paper); color: var(--ink); font-size: 14px; }
+    .catalog-tools { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 12px; color: var(--muted); margin-block: 10px 12px; }
+    .catalog-tools button { border: 0; padding: 8px 0; background: transparent; color: var(--accent); font-size: 12px; }
+    .chapter-list { border-top: 1px solid var(--line); }
+    .chapter { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 10px; padding: 12px 10px; border-bottom: 1px solid var(--line); text-decoration: none; font-size: 13px; line-height: 1.6; }
+    .chapter[aria-current="true"] { background: var(--tint); color: var(--accent); }
+    .chapter strong { font-variant-numeric: tabular-nums; font-size: 12px; font-weight: 500; }
+    .chapter span { overflow-wrap: anywhere; }
+    .empty { color: var(--muted); padding: 20px 8px; font-size: 14px; }
+    .editor { padding: 25px 28px; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); min-width: 0; scroll-margin-top: 18px; }
+    .editor-meta { color: var(--accent); font-size: 12px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+    .editor-meta span { font-variant-numeric: tabular-nums; }
+    h2 { margin: 0; line-height: 1.45; font-size: clamp(22px, 2.6vw, 29px); font-weight: 650; overflow-wrap: anywhere; }
+    .brief { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin: 22px 0; padding-block: 17px; border-block: 1px solid var(--line); }
+    .brief dt { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .brief dd { margin: 0; font-size: 13px; line-height: 1.8; }
+    .prompt-label { font-size: 12px; font-weight: 600; display: block; }
+    .hint { color: var(--muted); font-size: 12px; margin: 5px 0 12px; }
+    #prompt { width: 100%; min-height: 410px; padding: 17px; resize: vertical; border: 1px solid var(--line); border-radius: 4px; background: #fafaf7; color: #282b28; font-family: ui-monospace, "SFMono-Regular", "PingFang SC", monospace; font-size: 13px; line-height: 1.9; tab-size: 2; }
+    .toolbar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 12px; }
+    .primary { border-color: var(--accent); background: var(--accent); color: var(--paper); }
+    .toolbar button { font-size: 13px; }
+    #status { min-height: 22px; color: var(--accent); font-size: 12px; margin: 8px 0 0; }
+    .followup { background: var(--tint); padding: 15px 17px; margin: 18px 0; }
+    .followup p { font-size: 13px; margin: 5px 0 0; }
+    .followup span { color: var(--accent); font-size: 11px; font-weight: 650; }
+    .pager { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); padding-top: 10px; }
+    .pager button { border: 0; background: transparent; padding-inline: 0; font-size: 12px; text-align: left; }
+    .guide { margin-top: 36px; padding-block: 28px 12px; border-top: 1px solid var(--line); scroll-margin-top: 20px; }
+    .guide-head { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .guide-head a { font-size: 13px; }
+    .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; padding: 0; list-style: none; margin: 22px 0; counter-reset: steps; }
+    .steps li { counter-increment: steps; font-size: 13px; color: var(--muted); }
+    .steps li::before { content: "0" counter(steps); display: block; font-size: 12px; color: var(--accent); margin-bottom: 8px; font-variant-numeric: tabular-nums; }
+    .steps b { display: block; color: var(--ink); font-size: 15px; margin-bottom: 6px; }
+    .source-note { border-top: 1px solid var(--line); padding-top: 15px; color: var(--muted); font-size: 12px; line-height: 1.9; }
+    footer { padding-block: 24px 32px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--muted); font-size: 12px; }
+    noscript pre { white-space: pre-wrap; overflow-wrap: anywhere; background: var(--paper); padding: 20px; }
+    @media (hover: hover) { button:hover, .action:hover { background: var(--soft); } .primary:hover { background: #105538; } .chapter:hover { background: var(--soft); } }
+    @media (max-width: 900px) { .workspace { grid-template-columns: 245px minmax(0, 1fr); gap: 18px; } .editor { padding: 20px; } .intro { gap: 20px; grid-template-columns: minmax(0, 1fr) 180px; } .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 680px) { .shell { width: calc(100% - 28px); } .topbar .shell { gap: 5px; } .top-links { gap: 13px; } .intro { grid-template-columns: 1fr; gap: 20px; padding-block: 26px 20px; } .edition { justify-self: start; padding-top: 10px; } .edition strong { font-size: 42px; } .stages { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 20px; } .stage { padding: 12px; } .stage:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); } .stage:nth-child(4) { border-top: 1px solid var(--line); } .workspace { grid-template-columns: 1fr; gap: 20px; } .chapter-list { max-height: 235px; overflow-y: auto; overscroll-behavior: contain; } .editor { padding: 18px 15px; } .brief { grid-template-columns: 1fr; gap: 12px; margin-block: 16px; } #prompt { min-height: 360px; font-size: 12px; } .steps { gap: 18px; } }
+    @media (max-width: 680px) { .stage { display: block; } .stage em { display: block; margin-top: 6px; } }
+    @media (prefers-reduced-motion: reduce) { button:active, .action:active { transform: none; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#editor" data-i18n="skip">跳到提示词正文</a>
+  <header class="topbar">
+    <div class="shell">
+      <a class="brand" href="https://yaojingang.github.io/yao-open-prompts/">
+        <span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>Yao Open Prompts
+      </a>
+      <nav class="top-links" aria-label="专题导航" id="top-nav">
+        <a href="https://yaojingang.github.io/yao-open-prompts/" data-i18n="home">全部提示词</a>
+        <a href="#guide" data-i18n="guide">使用指南</a>
+        <a href="https://github.com/yaojingang/yao-open-prompts" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <button id="language" type="button" aria-label="Switch to English">English</button>
+      </nav>
+    </div>
+  </header>
+  <main class="shell">
+    <section class="intro">
+      <div>
+        <p class="eyebrow" lang="en">COURSE MARKETING / BOOK COMPANION</p>
+        <h1 data-i18n="title">课程营销学 · 配套提示词</h1>
+        <p data-i18n="intro">把一门课从想法推进到长期经营。按当前任务选择章节，填入真实信息，与 AI 一起打磨你的课程。</p>
+      </div>
+      <div class="edition"><strong>17</strong><span data-i18n="edition">套独立提示词<br>作者 姚金刚 · CC BY 4.0</span></div>
+    </section>
+    <nav class="stages" id="stages" aria-label="按篇筛选"></nav>
+    <div class="workspace">
+      <aside class="catalog" aria-label="章节目录" id="catalog">
+        <label class="search-label" for="search" data-i18n="searchLabel">查找当前要解决的问题</label>
+        <input id="search" type="search" placeholder="搜索章节、标题或关键词" autocomplete="off">
+        <div class="catalog-tools"><span id="result-count" role="status" aria-live="polite"></span><button type="button" id="clear" data-i18n="clear">显示全部</button></div>
+        <nav class="chapter-list" id="chapters" aria-label="提示词章节"></nav>
+        <p class="empty" id="empty" hidden data-i18n="empty">没有找到匹配章节，请换个关键词或显示全部。</p>
+      </aside>
+      <section class="editor" id="editor" tabindex="-1" aria-labelledby="prompt-title">
+        <div class="editor-meta"><span id="chapter-meta"></span><a id="source-link" href="https://github.com/yaojingang/yao-open-prompts/tree/main/prompts/08-ai-marketing/course-marketing" target="_blank" rel="noreferrer" data-i18n="source">查看 Markdown ↗</a></div>
+        <h2 id="prompt-title">选择一个章节开始</h2>
+        <dl class="brief"><div><dt data-i18n="inputs">准备这些信息</dt><dd id="input-info"></dd></div><div><dt data-i18n="output">你会得到</dt><dd id="output-info"></dd></div></dl>
+        <label class="prompt-label" for="prompt" data-i18n="promptLabel">可编辑的提示词正文</label>
+        <p class="hint" data-i18n="hint">把 {示例} 替换为真实信息，包括输出标题中的名称。编辑内容保留在当前会话中。</p>
+        <textarea id="prompt" spellcheck="false" aria-describedby="edit-hint"></textarea>
+        <span id="edit-hint" hidden data-i18n="hint">把示例替换为真实信息。编辑内容保留在当前会话中。</span>
+        <div class="toolbar"><button type="button" class="primary" id="copy" data-i18n="copy">复制提示词</button><button type="button" id="download" data-i18n="download">下载正文 .txt</button><button type="button" id="reset" data-i18n="reset">恢复原文</button><button type="button" id="offline" data-i18n="offline">下载离线 HTML</button></div>
+        <p id="status" role="status" aria-live="polite"></p>
+        <div class="followup"><span data-i18n="followup">得到初稿后，可以这样追问</span><p id="followup-text"></p></div>
+        <div class="pager"><button type="button" id="prev"></button><button type="button" id="next"></button></div>
+      </section>
+    </div>
+    <section class="guide" id="guide" aria-labelledby="guide-title">
+      <div class="guide-head"><h2 id="guide-title" data-i18n="guideTitle">从一份具体的课程简报开始</h2><a id="guide-link" href="https://github.com/yaojingang/yao-open-prompts/blob/main/references/course-marketing-guide.md" data-i18n="fullGuide">完整使用指南 ↗</a></div>
+      <ol class="steps" id="steps"></ol>
+      <p class="source-note" data-i18n="sourceNote">原稿有 18 个小节。3.5 发售与 2.6 交付的正文及使用说明相同，本页收录 17 套独立模板，保留原书编号。阅读 3.5 时可参考 2.6；独立的 3.5 模板待作者补充。中文正文保留原文，英文提供对应译本。</p>
+      <p class="source-note" data-i18n="validation">请用真实调研核实市场、价格和学员需求。案例、背书、效果描述与服务承诺应有依据。章节标题中的倍数沿用原书表述，具体效果取决于课程与执行。</p>
+    </section>
+    <noscript><p>浏览器未启用 JavaScript，可展开下方章节复制原文。Browser scripting is disabled. Expand a chapter below to copy the Chinese source.</p><details><summary>1.1 使命：吸引真正欣赏你的用户</summary><pre>Role（角色）：
+你是一位顶级的课程营销战略顾问，尤其擅长运用“使命定位公式”帮助知识IP和老师挖掘并确立自己独特且富有吸引力的使命。你善于提问，能引导我进行深度思考。
+
+Task（任务）：
+请严格按照“使命定位公式”，通过与我对话的方式，帮我打磨出清晰的课程使命。
+
+使命定位公式：使命定位 = 场景角色（我的角色和需求场景） + 利他目标（为学员达成什么目标） + 差异化标签（我与他人有何不同）
+
+我的基本信息如下：
+- 我的专业领域与经验：{例如：10年经验的英语教师，专注于商务英语}
+- 我的目标用户群体是：{例如：希望提升职场竞争力的互联网从业者}
+- 我提供的核心内容或能力是：{例如：商务邮件写作和会议口语表达}
+- 我认为当前市场的特点是：{例如：竞争激烈，但大多课程偏理论，不实用}
+
+请你先基于我提供的信息，对我目前的定位做一个初步诊断，然后提出3个关键问题，引导我思考和明确我的“场景角色”、“利他目标”和“差异化标签”。最后，请帮我组合出2-3个使命定位方案，并分析各自的优劣。
+
+Format（格式）：
+请严格按照以下结构输出：
+1. 初步诊断：对我现有信息的简要分析。
+2. 深度提问：提出三个引导性问题，分别对应公式的三个要素。
+3. 使命定位方案：在我回答你的问题后（此处请你模拟我的回答），提供2-3个完整的使命定位方案。
+4. 方案对比：用表格形式对比分析每个方案的优劣。</pre></details>
+<details><summary>1.2 人设：为什么是你而不是别人</summary><pre>Role（角色）：
+你是一位顶级个人品牌战略专家，精通市场营销与积极心理学。你的任务是帮助我，一位课程老师/知识专家，构建一个真实、独特且有吸引力的个人品牌人设。
+
+Task（任务）：
+请严格围绕“专业人设”、“性格人设”、“用户人格”这三个维度，对我进行分析和指导。
+
+我的基本信息如下：
+- 我的专业领域和核心技能是：{例如：儿童心理学，擅长沙盘游戏治疗}
+- 我认为自己最突出的3个品格优势是：{例如：善良、有洞察力、有创造力}
+- 我的目标用户群体是：{例如：对孩子教育感到焦虑的3-6岁儿童家长}
+
+请你基于以上信息，完成以下任务：
+1. 专业人设定位：为我构思3个具有差异化的“专业人设”方向，并说明理由。
+2. 性格人设融合：指导我如何将我的品格优势自然地融入到我的课程内容、社交媒体互动和日常表达中。
+3. 用户人格匹配：分析我的目标用户可能存在的“现实人格”和“理想人格”，并说明我的人设如何与他们产生共鸣。
+
+Format（格式）：
+请按照以下结构清晰地输出你的建议：
+
+### 一、专业人设建议
+[方案一、方案二、方案三，并附简要说明]
+
+### 二、性格人设融合策略
+[针对每个品格优势，提供具体的融合建议]
+
+### 三、用户人格共鸣分析
+[分析用户人格，并阐述匹配逻辑]
+
+### 四、综合人设总结
+[用一句话总结最终的人设定位]</pre></details>
+<details><summary>1.3 商业：如何找到你的蓝海市场</summary><pre>Role（角色）：
+你是一位顶尖的市场战略分析师，精通蓝海战略和4P营销理论。你的任务是引导我使用“蓝海市场差异化定位表”的思维框架，来分析我的目标市场，并找到差异化的机会点。
+
+Task（任务）：
+请一步步指导我完成市场分析。我的信息如下：
+
+- 我的赛道定义：{例如：面向30-40岁职场妈妈的时间管理线上课程}
+- 我的主要竞争对手分析 (我的初步判断)：
+  - 对手1 (类型)：{例如：知识付费App上的大V}
+  - 对手1 (4P分析)：产品-{中/内容不错但服务浅}，价格-{低/客单价99元}，渠道-{高/平台流量大}，宣传-{高/个人IP响亮}
+  - 对手2 (类型)：{例如：专注时间管理的垂直App}
+  - 对手2 (4P分析)：产品-{高/工具强大但课程弱}，价格-{中/年费300元}，渠道-{中/应用商店}，宣传-{低/口碑传播}
+  - (你可以根据需要增加更多对手)
+
+请根据我提供的信息，完成以下工作：
+1. 分析市场格局：总结当前市场的主要竞争区域，指出哪些象限（例如“低价-高宣传”）已经非常拥挤。
+2. 识别市场空白：明确指出在“产品”和“价格”这两个维度上，目前最明显的市场空白或弱竞争区是什么。
+3. 提出蓝海建议：基于发现的市场空白，为我提出2-3个具体的、差异化的产品定位建议，并解释为什么这个定位有机会成功。
+
+Format（格式）：
+请严格按照以下结构输出：
+
+### 1. 市场竞争格局分析
+[总结并描述当前市场的竞争态势]
+
+### 2. 蓝海市场机会点
+[明确指出“产品-价格”矩阵中的空白或弱竞争区域]
+
+### 3. 差异化战略建议
+建议一：[提出具体的定位建议，并阐述其可行性]
+建议二：[提出第二个定位建议，并阐述其可行性]</pre></details>
+<details><summary>1.4 课程：你要解决的是什么痛点</summary><pre>Role（角色）：
+你是一位顶级的用户体验研究专家和教育产品经理，精通“痛点定位表”和“靶心人定位法”。你的任务是引导我深度剖析目标用户，找到我课程应该聚焦的核心痛点。
+
+Task（任务）：
+请一步步指导我完成用户痛点分析。我的信息如下：
+
+- 我的课程构想：{例如：一门教程序员如何有效进行公开演讲的课程}
+- 我的目标用户画像（抽象）：{例如：25-35岁的程序员，技术能力强，但表达能力偏弱}
+- 我的“靶心人”（具体）：{例如：我的朋友阿伟，一位资深后端工程师，技术分享时总因为太紧张、内容太枯燥，导致听众听不懂、效果很差。}
+
+请根据我提供的信息，完成以下工作：
+1. 构建用户行动路径：为我的“靶心人”阿伟，构建一个从“接到演讲任务”到“完成演讲”的典型行动路径。
+2. 分析各环节痛点：在路径的每一步，使用“效果、价格、形象、可靠、门槛”这五个维度，分析阿伟可能遇到的最大阻碍是什么。
+3. 诊断核心痛点：综合所有分析，用一句话总结出阿伟最核心、最急需解决的痛点是什么。
+4. 提出“止痛药”方案：针对这个核心痛点，为我的课程提出一个具体的产品定位或教学侧重点建议。
+
+Format（格式）：
+请严格按照以下结构输出：
+
+### 1. “靶心人”行动路径
+[列出清晰的步骤]
+
+### 2. 痛点定位分析
+[分步骤阐述每个环节可能存在的、基于五个维度的痛点]
+
+### 3. 核心痛点诊断
+[用一句话明确指出最关键的痛点]
+
+### 4. “止痛药”式课程建议
+[提出一个具体的、能精准解决该痛点的产品方向]</pre></details>
+<details><summary>2.1 名称：如何让课程标题自带广告</summary><pre>Role（角色）：
+你是一位顶尖的营销文案专家与课程命名顾问，尤其擅长运用心理学原理为知识产品打造“自带广告效果”的标题。你精通以下五种标题优化策略：指出用户利益、营造冲突感、创造视觉感、打造附着力、突出权威感。
+
+Task（任务）：
+我的新课程需要一个极具吸引力的标题。请你根据我提供的课程信息，严格按照上述五种策略，分别为我的课程构思2个标题方案（共10个），并最后给出一个综合推荐。
+
+我的课程信息：
+- 核心内容：{例如：教用户如何使用AI绘画工具Midjourney进行商业插画创作}
+- 目标用户：{例如：零基础的设计爱好者、希望提升效率的插画师}
+- 用户最大痛点：{例如：想学但觉得技术门槛高，或者画得慢无法商业化接单}
+- 我的独特优势/权威背书：{例如：我曾用Midjourney作品获得国际奖项，或者我是某设计公司艺术总监}
+
+Format（格式）：
+请严格按照以下格式输出，确保结构清晰：
+
+### 课程标题优化方案
+
+1. 策略一：指出用户利益
+   - 方案1：
+   - 方案2：
+
+2. 策略二：营造冲突感
+   - 方案1：
+   - 方案2：
+
+3. 策略三：创造视觉感
+   - 方案1：
+   - 方案2：
+
+4. 策略四：打造附着力
+   - 方案1：
+   - 方案2：
+
+5. 策略五：突出权威感
+   - 方案1：
+   - 方案2：
+
+---
+### 综合推荐
+综合来看，我最推荐的标题是：[在此处填写你认为最佳的标题]
+理由：[简要说明该标题为何最佳，比如它巧妙融合了哪两种策略]</pre></details>
+<details><summary>2.2 大纲：如何让你的大纲说人话</summary><pre>Role（角色）：
+你是一位金牌课程设计师与教学法专家，你深知“知识诅咒”对教学效果的危害。你的核心能力是站在用户视角，将任何领域的专业知识点，转化为“说人话”的、有逻辑、有吸引力的课程大纲。你尤其擅长运用“点线面体”原则进行结构化设计。
+
+Task（任务）：
+我的新课程需要一个“说人话”的大纲。请你根据我提供的课程信息，完成以下两个核心任务：
+1.  内容翻译：将我提供的每一个“专业知识点”，都转化为一个用户关心的“痛点问题”或“收益点”。
+2.  结构重组：基于翻译后的内容，运用“分类法”或“因果法”，帮我设计一个包含3-4个模块的、逻辑清晰的完整课程大纲。
+
+我的课程信息：
+- 课程主题：{例如：PPT设计与制作}
+- 目标用户画像：{例如：经常需要做汇报、写方案的职场白领}
+- 用户核心痛点：{例如：做PPT费时费力，但效果总是不好，被老板批评}
+- 我想讲授的专业知识点列表：
+    - 知识点1：{例如：母版与版式设计}
+    - 知识点2：{例如：色彩搭配原理}
+    - 知识点3：{例如：信息图表化呈现}
+    - 知识点4：{例如：动画效果与切换逻辑}
+    - 知识点5：{例如：演讲者模式的应用}
+
+Format（格式）：
+请严格按照以下格式输出，让我看到你的思考过程和最终成果：
+
+### 第一步：从“专业视角”到“用户视角”的内容翻译
+
+- 母版与版式设计 -&gt; 痛点问题：如何告别加班，10分钟搭好PPT框架？
+- 色彩搭配原理 -&gt; 痛点问题：为什么我的PPT看起来总有廉价感？
+- （请继续完成所有知识点的翻译）
+
+### 第二步：逻辑化大纲重组
+
+模块一：效率篇 - 让你做PPT又快又好
+   - 1.1 （翻译后的标题1）
+   - 1.2 （翻译后的标题2）
+
+模块二：美学篇 - 告别丑PPT，让老板眼前一亮
+   - 2.1 （翻译后的标题3）
+   - 2.2 （翻译后的标题4）
+
+模块三：呈现篇 - 从“汇报”到“征服”
+   - 3.1 （翻译后的标题5）
+   - 3.2 （......）
+
+（请为我构建完整的3-4个模块）</pre></details>
+<details><summary>2.3 内容：如何改变认知和唤醒行为</summary><pre>Role（角色）：
+你是一位世界级的课程体验设计师与行为心理学专家。你坚信课程的成功不在于传递了多少知识，而在于改变了多少行为。你极其擅长运用“内容四步法”（场景挑战+无效方案+新的方案+新的效果）和“福格行为模型”（B=MAP）来设计一节高转化、高完课率的课程。
+
+Task（任务）：
+请为我设计一节核心课程的完整教学方案。我会提供课程的基本信息，请你帮我构建一个既能改变认知，又能唤醒行为的教学流程。
+
+我的课程信息：
+- 课程名称：{例如：《零基础也能学会的公众演讲课》}
+- 这节课的主题：{例如：如何克服上台紧张}
+- 这节课要传递的核心知识点：{例如：紧张的生理原因、呼吸放松法、视觉焦点法}
+- 这节课最希望唤醒的学员关键行为：{例如：让学员完成一次3分钟的录音或录像演讲练习}
+
+Format（格式）：
+请严格按照以下两个层次，为我输出一份详细的教学设计方案：
+
+### 层次一：改变认知（内容四步法设计）
+
+请为这节课设计一个引人入胜的开场和核心内容讲述流程。
+1.  场景挑战：（请设计一个让学员瞬间代入的、关于“上台紧张”的具体场景）
+2.  无效方案：（请描述大多数人面对紧张时，常做的、但效果不佳的错误方法，如“深呼吸”、“告诉自己别紧张”）
+3.  新的方案：（请将我提供的“呼吸放松法”等知识点，包装成一个简单、新颖、易操作的方法论，并给它起个好记的名字）
+4.  新的效果：（请描绘学员掌握新方法后，能达到的理想状态）
+
+---
+### 层次二：唤醒行为（B=MAP模型设计）
+
+请设计具体的环节或工具，确保学员听完课后会立刻去行动。
+1.  如何提升动机 (Motivation)：（请设计1-2个具体方法，如展示对比案例、描绘成功愿景等）
+2.  如何提升能力 (Ability)：（请设计一个“极简版”的课后作业，把行动门槛降到最低，让学员无法拒绝）
+3.  如何增加提示 (Prompt)：（请设计1-2个具体的提示方案，如打卡模板、社群活动、行为锚点建议等）</pre></details>
+<details><summary>2.4 材料：如何让吸引力增加10倍</summary><pre>Role（角色）：
+你是一位首席课程体验官与营销心理学顾问，深谙如何将枯燥的知识点包装成引人入胜、极具吸引力的教学内容。你尤其擅长创造性地运用“故事、图片、金句”等材料，并结合“权威感、社会认同、稀缺性”等心理诱因。
+
+Task（任务）：
+请帮助我丰富一节课的内容，让它的吸引力增加10倍。我会提供这节课的核心知识点，请你为我进行创意策划，提供具体的“材料”和“心理诱因”植入方案。
+
+我的课程信息：
+- 课程名称：{例如：《个人品牌IP打造课》}
+- 这节课的主题：{例如：如何写出让用户记住的个人简介}
+- 这节课的核心干货/知识点（请用无趣、理性的方式陈述）：{例如：个人简介应包含三个要素：身份标签、价值主张、信任背书。}
+
+Format（格式）：
+请严格按照以下结构，为我提供一份详细的“课程内容魅力升级方案”：
+
+### 第一部分：丰富课程材料（让内容活起来）
+
+1.  故事/案例建议：
+    - 请构思一个简短的、有代入感的开场故事，说明个人简介的重要性。
+2.  图片/图表建议：
+    - 请设计一个直观的视觉化呈现方案，用来解释简介的三个要素。
+3.  金句提炼：
+    - 请帮我提炼2-3句关于“个人简介”的、易于记忆和传播的金句。
+
+---
+### 第二部分：植入心理诱因（让吸引力加倍）
+
+1.  如何营造「权威感」：
+    - 建议1：
+    - 建议2：
+2.  如何运用「社会认同」：
+    - 建议1：
+    - 建议2：
+3.  如何创造「稀缺性」或「互惠」：
+    - 建议1：
+    - 建议2：</pre></details>
+<details><summary>2.5 模型：如何让价值感提升100倍</summary><pre>Role（角色）：
+你是一位顶级的知识体系架构师与理论模型创建专家。你擅长洞察复杂信息背后的核心规律，能够将零散的方法论和经验，提炼、归纳并升华为一个结构清晰、易于传播的原创理论模型。你精通“演绎法”、“归纳法”和“改造法”三种模型构建方式。
+
+Task（任务）：
+请帮助我为我的课程创建一个独特的理论模型，以提升课程的价值感和独特性。我会提供课程的核心方法论（目前可能比较零散），请你：
+1.  分析我的方法论，并建议最适合用哪种方法（演绎/归纳/改造）来构建模型。
+2.  基于所选方法，为我设计2-3个候选的模型结构草案。
+3.  为最优的模型草案，建议3-5个朗朗上口、便于传播的名字。
+
+我的课程信息：
+- 我的课程主题：{例如：如何进行有效的深度阅读}
+- 我的核心方法论或步骤（请用散点、列表的方式描述）：
+    - {例如：先看目录和序言，了解大概}
+    - {例如：阅读时要划线、做笔记}
+    - {例如：读完后要尝试复述给别人听}
+    - {例如：要关联自己已有的知识}
+    - {例如：要思考如何将书中内容用到工作生活中}
+- 我的目标是帮助用户解决什么核心问题：{例如：读书过目就忘，无法学以致用}
+
+Format（格式）：
+请按照以下咨询报告的格式，为我提供方案：
+
+### 课程模型构建咨询报告
+
+1. 核心方法论分析及构建方法建议：
+   [在此处分析我提供的方法论，并说明为什么推荐使用演绎/归纳/改造法]
+
+2. 模型结构草案 (提供2个选项):
+   * 草案A：[模型名称]
+     - 步骤1：[描述]
+     - 步骤2：[描述]
+     - 步骤3：[描述]
+   * 草案B：[模型名称]
+     - 维度1：[描述]
+     - 维度2：[描述]
+     - 维度3：[描述]
+
+3. 最终模型命名建议 (针对最优草案):
+   - 命名方案1 (类比法):
+   - 命名方案2 (概括法):
+   - 命名方案3 (图形/符号法):
+   - 综合推荐：[你最推荐的名字]</pre></details>
+<details><summary>2.6 交付：如何让用户感觉很超值</summary><pre>Role（角色）：
+你是一位顶级课程交付体验设计师与用户价值增长顾问。你深知，用户口碑来源于“超值感”。你擅长运用“功能价值、情绪价值、资产价值”三位一体的模型，为线上课程设计出高附加值的交付方案。
+
+Task（任务）：
+请为我的线上课程策划一套“超值感”交付方案。我会提供课程的基本情况，请你围绕“功能价值”、“情绪价值”、“资产价值”三个维度，分别为我提出3-5个具体的、可落地的创意建议。
+
+我的课程信息：
+- 课程名称：{例如：《零基础油画入门课》}
+- 课程的核心内容：{例如：讲解油画的基本技法、色彩理论和构图}
+- 课程的当前售价：{例如：499元}
+- 当前的基础交付方式：{例如：20节录播视频+一些电子版参考图}
+
+Format（格式）：
+请按照以下“三位一体价值提升方案”的格式，为我输出策划建议：
+
+### 《{课程名称}》超值感交付方案
+
+一、 功能价值提升（让学员感觉“很有用”）
+   1.  [建议1：例如，提供“新手油画工具采购清单与避坑指南”PDF]
+   2.  [建议2：例如，每月一次“作品诊断”直播课]
+   3.  [建议3：...]
+
+二、 情绪价值提升（让学员感觉“很开心”）
+   1.  [建议1：例如，举办“云画展”，在线展示学员优秀作品，增加其荣誉感]
+   2.  [建议2：例如，建立打卡小程序，完成一幅画就点亮一枚“艺术家勋章”]
+   3.  [建议3：...]
+
+三、 资产价值提升（让学员感觉“买赚了”）
+   1.  [建议1：例如，宣布课程为“永久更新制”，未来新增画法或技巧，老学员全部免费学]
+   2.  [建议2：例如，设置阶梯式涨价计划，并公开宣传，让早期学员感受到“投资”价值]
+   3.  [建议3：...]</pre></details>
+<details><summary>3.1 价格：定价并不由成本决定</summary><pre>Role（角色）：
+你是一位资深的营销战略家与课程定价专家，你深知“价格本身就是一种营销”。你擅长综合运用“定价法则”和“心理学策略”，为知识产品设计出既能彰显价值又能促进销售的价格体系。
+
+Task（任务）：
+请为我的新课程设计一套完整的定价与销售策略。我会提供课程的基本信息，请你严格按照“两步定价法”为我提供一份策略建议书。
+
+我的课程信息：
+- 我的课程主题：{例如：零基础学Python数据分析}
+- 我的目标用户：{例如：希望转行或提升数据处理能力的职场人}
+- 课程能帮用户解决的核心问题/创造的核心价值：{例如：掌握核心技能，能够胜任数据分析岗位，提升职业竞争力}
+- 同赛道主要竞品的价格区间：{例如：入门课普遍在300-800元，进阶项目实战课在1500-4000元}
+- 我期望的品牌定位：{例如：定位为高端、实战、能真正帮学员找到工作的精品课程}
+
+Format（格式）：
+请按照以下“课程定价策略建议书”的格式，为我输出方案：
+
+### 《{课程主题}》定价策略建议书
+
+第一步：确定合理价格基础（定价法则分析）
+1.  竞品视角分析：根据你提供的竞品价格，你的合理价格区间是...
+2.  用户价值分析：这门课为用户创造的价值（如找到工作后的薪资提升）远高于课程本身，因此我们有底气制定一个...的价格。
+3.  品牌战略分析：基于你的高端定位，价格应...
+4.  【价格基础建议】：综合以上三点，我建议将课程的基础价格定在 [给出一个具体的价格] 左右。
+
+第二步：设计价格竞争力策略（心理策略组合）
+基于上述基础价格，我为你设计一套“三板斧”发售策略：
+1.  策略一：高价锚定
+    - [请设计一个更高价格的产品或服务作为锚点，例如一对一咨询]
+2.  策略二：折中选项
+    - [请设计一个包含“标准版”、“Pro版”、“豪华版”的套餐体系，并明确指出哪个是主推选项]
+3.  策略三：限时优惠（制造损失厌恶）
+    - [请设计一个有吸引力的早鸟优惠方案]
+
+【综合发布建议】
+[总结一下，并给出一个最终的、清晰的发布价格策略]</pre></details>
+<details><summary>3.2 渠道：如何让课程触手可及</summary><pre>Role（角色）：
+你是一位顶级的课程增长战略顾问与渠道拓展专家。你深知对于个体老师而言，渠道建设需要“自有”和“外部”两条腿走路，并且你坚信“利他”是开启一切外部合作的金钥匙。
+
+Task（任务）：
+请为我的新课程设计一套从0到1的渠道增长行动计划。我会提供课程的基本信息，请你为我规划：
+1.  一个为期3个月的“自有渠道”建设计划。
+2.  一个针对性的“外部渠道”合作方案，包含具体的合作对象分析和一套“利他主义”的合作开场白。
+
+我的课程信息：
+- 我的课程主题：{例如：《面向职场新人的Excel数据可视化》}
+- 我的目标用户画像：{例如：22-28岁，在工作中需要频繁处理数据和制作报表的白领}
+- 我目前可投入的时间精力：{例如：每周大约8小时}
+- 我的内容创作特长：{例如：我擅长写图文并茂的教程文章}
+
+Format（格式）：
+请按照以下“渠道增长行动计划”的格式，为我输出方案：
+
+### 《{课程主题}》渠道增长行动计划
+
+第一部分：自有渠道“私域”建设三月计划
+
+- 主攻平台：[根据我的特长，建议1-2个核心平台]
+- 内容价值策略：
+  - 第1个月（主题：吸引关注）：[具体的月度内容主题和发布频率]
+  - 第2个月（主题：建立信任）：[具体的月度内容主题和发布频率]
+  - 第3个月（主题：激活需求）：[具体的月度内容主题和发布频率]
+- 私域钩子设计：[设计一个吸引用户加我微信的免费“工具”或“资料”]
+
+---
+第二部分：外部渠道“利他”合作方案
+
+- 首选合作渠道分析：
+  - 渠道名称：[建议一个具体的、与我课程匹配的公众号/社群/平台]
+  - 推荐理由：[说明为什么这个渠道的用户画像与我高度匹配]
+- “利他”合作开场白（邮件/私信模板）：
+  “您好，[渠道方名称]！
+  [一段真诚的赞美和关注]
+  [点出你观察到的、对方粉丝的一个核心痛点]
+  [提出一个无法拒绝的、纯价值贡献的“利他”合作提议，例如免费提供一篇高质量的独家供稿、或一场公益直播]
+  [结尾，表明合作诚意]
+  ——[你的署名]”
+  （请帮我填充以上模板的具体内容）</pre></details>
+<details><summary>3.3 包装：如何为课程披上好外衣</summary><pre>Role（角色）：
+你是一位金牌营销策划与文案专家，尤其擅长为线上课程进行“价值包装”。你深刻理解消费者的购买心理，精通如何通过文案降低用户的感知风险，并塑造课程的“超值感”。你将严格遵循“价值包装七步法”来构建文案。
+
+Task（任务）：
+请为我的新课程撰写一份完整的详情页文案。我会提供课程的核心信息，请你运用“价值包装七步法”，为我生成一套有逻辑、有说服力、能直接使用的文案。
+
+我的课程信息：
+- 课程名称：{例如：《轻松记忆：让你过目不忘的超级记忆法》}
+- 课程副标题/一句话介绍：{例如：一套面向学生和职场人士的实用记忆技巧课}
+- 课程要解决的核心痛点 (请用列表形式)：
+    - {例如：背单词总是记不住}
+    - {例如：考试前疯狂复习，考完就忘}
+    - {例如：开会时记不住要点，发言时大脑空白}
+- 课程能带来的核心价值/效果：{例如：能将记忆效率提升3倍，轻松应对考试和工作汇报}
+- 我能提供的超值赠品：{例如：一份《抗遗忘复习周期表》PDF，一个记忆宫殿的实战案例拆解视频}
+- 我能做出的风险承诺：{例如：7天内无理由退款}
+- 我拥有的权威背书：{例如：往期学员的好评截图，我自己是世界记忆大师赛的认证选手}
+- 我的理想学员画像：{例如：需要大量记忆知识的高中生、大学生和考证党}
+
+Format（格式）：
+请严格按照以下“高转化率详情页文案结构”输出，确保每个部分目标明确：
+
+### 【{课程名称}】
+
+1. 广告金句 (激发兴趣):
+   [在此处创作一句响亮的、包含用户利益的广告语]
+
+2. 痛点说明 (引发共鸣):
+   “你是否也曾经历过这样的崩溃瞬间？”
+   - [痛点1]
+   - [痛点2]
+   - [痛-点3]
+
+3. 价值提炼 (给出期望):
+   “学完这门课，你将能够...”
+   - [价值1]
+   - [价值2]
+
+4. 超值赠品 (无法抗拒):
+   “不仅如此！今天报名，我们还为你准备了2份超级赠品，让你物超所值！”
+   - 赠品一：[描述赠品1的名称和价值]
+   - 赠品二：[描述赠品2的名称和价值]
+
+5. 风险承诺 (彻底放心):
+   “我们向你郑重承诺...”
+   [在此处清晰地陈述你的退款或其他承诺政策]
+
+6. 权威背书 (建立信任):
+   “他们都说好，你还在等什么？”
+   [此处用文字描述你拥有的权威背书，例如“XX学员亲测有效”、“XX认证导师亲授”]
+
+7. 适用群体 (精准筛选):
+   “这门课特别适合谁？”
+   - [适合人群1]
+   - [适合人群2]
+   “谁不适合这门课？”
+   - [不适合的人群，以退为进]</pre></details>
+<details><summary>3.4 造势：如何吸引大量潜在客户</summary><pre>Role（角色）：
+你是一位金牌课程营销与发布会策划专家，是“造势”的大师。你深知一场成功的课程发售，七分靠预热，三分靠引爆。你擅长为线上课程设计一套完整的、有仪式感、能激发用户强烈购买欲的发布会流程。
+
+Task（任务）：
+请为我的新课程策划一套为期7天的“新品发布”造势行动方案。我会提供课程的基本信息，请你为我规划：
+1.  一个响亮的、有吸引力的发布活动名称。
+2.  一套从第1天到第7天的详细预热行动计划（朋友圈/社群文案方向）。
+3.  一个正式发售直播会的核心流程脚本（认知、干货、成交主张）。
+
+我的课程信息：
+- 课程名称：{例如：《副业赚钱第一课：用写作实现收入破万》}
+- 课程核心价值：{例如：教用户一套普通人也能上手的、通过在新媒体平台投稿实现稳定变现的方法论}
+- 目标用户：{例如：希望增加收入的宝妈、大学生、职场新人}
+- 我的主要自有渠道：{例如：拥有1000粉丝的个人公众号，3个500人的微信群}
+
+Format（格式）：
+请按照以下“新品发布造势行动方案”的格式，为我输出：
+
+### 《{课程名称}》新品发布造势行动方案
+
+1. 发布活动命名建议：
+   [在此处建议1-2个响亮的活动名称]
+
+2. 发售预热七日行动计划 (朋友圈/社群文案方向):
+   - 第1-2天（悬念预告）：[文案方向建议]
+   - 第3-4天（价值展示）：[文案方向建议]
+   - 第5-6天（信任加强）：[文案方向建议]
+   - 第7天（临门一脚）：[文案方向建议]
+
+3. 正式发售直播会脚本框架：
+   - 第一部分：讲透认知 (约20分钟)
+     - [设计1-2个能击中用户焦虑、引发共鸣的观点]
+   - 第二部分：讲透干货 (约30分钟)
+     - [设计2-3个能让用户立刻感觉“有用”的、可直接应用的迷你方法论]
+   - 第三部分：讲透成交主张 (约15分钟)
+     - [设计一个包含“限时优惠 + 超值赠品 + 稀缺名额”的无法抗拒的Offer]</pre></details>
+<details><summary>4.1 讲课：如何让学员听课听上瘾</summary><pre>Role（角色）：
+你是一位王牌教学设计师与课堂体验优化专家，是“峰终定律”在教育领域的顶级实践者。你深知，让学员上瘾的关键，不在于灌输知识，而在于创造“欣喜感”和“认知感”的峰值时刻。
+
+Task（任务）：
+请帮助我将一节可能会很枯燥的课程，设计成一堂充满“峰值体验”的精彩课程。我会提供这节课的核心知识点，请你：
+1.  运用“冲突式认知改变公式”，为我设计一个能创造“认知感”的开场和核心讲解流程。
+2.  为这节课，创造性地设计2-3个能带来“欣喜感”的教学环节或材料。
+
+我的课程信息：
+- 课程主题：{例如：《人人都能学会的理财课》}
+- 这节课的具体课题：{例如：复利的威力}
+- 我计划讲授的核心知识点 (请用枯燥、客观的方式罗列)：
+    - {例如：复利的定义和数学公式 F = P(1+i)^n}
+    - {例如：讲解本金、利率和时间三个核心要素}
+    - {例如：对比单利和复利的长期差异}
+- 我希望学员听完后产生的“啊哈”时刻是什么：{例如：让学员意识到，即使小钱，只要坚持长期投资，也能滚成一笔巨款，从而对理财产生信心和动力}
+
+Format（格式）：
+请按照以下“‘上瘾体验式’课程脚本”的格式，为我输出详细方案：
+
+### “上瘾体验式”课程脚本：《{这节课的具体课题}》
+
+一、 创造“认知感”的教学流程 (冲突式认知改变)
+
+1.  背景 (切入)：[建议一个能引发学员共鸣的、关于“存钱”或“理财”的常见场景或想法]
+2.  冲突 (转折)：[建议一个能颠覆上述常见想法的、惊人的事实或案例]
+3.  疑问 (设问)：[根据冲突，提出一个能激发学员强烈好奇心的问题]
+4.  解决方案 (讲授)：[在此处，将我提供的核心知识点，作为答案自然地引出和讲解]
+
+二、 创造“欣喜感”的教学环节 (惊喜设计)
+
+1.  欣喜点1 (例如：提升感官享受)：[建议一个生动的故事、比喻或视觉化图表]
+2.  欣喜点2 (例如：增加刺激性)：[建议一个互动性强的在线计算器或小实验，让学员亲手验证复利效果]
+3.  欣喜点3 (例如：打破脚本)：[建议一个课程结尾的惊喜彩蛋或额外福利]</pre></details>
+<details><summary>4.2 服务：如何实现高质量满意度</summary><pre>Role（角色）：
+你是一位金牌社群运营官与峰值体验设计师，你深知一个成功的学员社群，核心在于创造“关系价值”。你擅长运用“服务规则”建立社群的秩序与安全感，并用“峰值体验”设计来激发学员的愉悦感与归属感。
+
+Task（任务）：
+请为我的线上课程，设计一套完整的“高质量满意度”社群服务体系。我会提供课程的基本信息，请你围绕“打造服务规则”和“打造峰值体验”两大原则，为我提供一套详细、可执行的社群运营方案。
+
+我的课程信息：
+- 课程名称：{例如：《30天掌握精准写作》}
+- 课程的核心学习目标：{例如：帮助学员建立写作框架，写出逻辑清晰、表达精准的文章}
+- 目标学员画像：{例如：需要频繁写工作报告、方案和公众号文章的职场人士}
+- 计划的社群服务周期：{例如：30天}
+
+Format（格式）：
+请按照以下“高质量社群服务体系方案”的格式，为我输出：
+
+### 《{课程名称}》高质量社群服务体系方案
+
+第一部分：打造服务规则 (建立掌控感与秩序)
+
+1.  针对老师的规则 (高效服务)：
+    - 答疑时间：[建议一个固定的、可持续的答疑时间]
+    - 内容发布：[建议一个固定的、有节奏的内容发布计划，如每周作业]
+2.  针对学员的规则 (清爽环境)：
+    - 提问规范：[建议一个清晰的提问格式，以提升答疑效率]
+    - 互动规范：[建议几条核心的群规，如禁止广告、文明交流等]
+
+---
+第二部分：打造峰值体验 (创造连接与荣耀)
+
+1.  如何创造“连接感”：
+    - 共同使命：[为本期社群设计一个有感召力的共同学习使命]
+    - 创造关系：[设计1-2个能促进学员之间连接的活动，如“破冰介绍”、“互助小组”等]
+2.  如何创造“荣耀感”：
+    - 设立里程碑：[为课程学习路径设计2-3个清晰的里程碑及对应的“虚拟奖励”]
+    - 认可他人：[设计一个定期的、能公开表彰优秀学员的“明星学员”活动]
+3.  如何设计“终值体验”：
+    - [在服务周期结束时，设计一个有仪式感的、能让学员留下美好回忆的“毕业活动”]</pre></details>
+<details><summary>4.3 价值：如何设计长期价值体系</summary><pre>Role（角色）：
+你是一位顶级的商业模式顾问与LTV（用户生命周期总价值）增长战略家。你深知，一个健康的知识付费事业，绝不能只依赖于单一产品。你擅长帮助个体老师，基于其核心优势，设计一个层次分明、能够引导用户持续复购的产品金字塔。
+
+Task（任务）：
+请帮助我基于我现有的核心课程，设计一套完整的“LTV增长产品体系”。我会提供我的核心课程信息，以及我对学员进阶需求的洞察。请你为我规划一个包含“引流品”、“核心课”、“高阶课”和“尖端服务”四个层次的产品金字塔。
+
+我的课程信息：
+- 我的核心课程名称：{例如：《Canva平面设计速成课》}
+- 课程售价：{例如：399元}
+- 课程核心价值：{例如：帮助零基础小白，快速掌握用Canva制作海报、公众号配图等常用设计}
+- 我的学员在学完课程后，可能会产生哪些新的需求或进阶渴望？：
+    - {例如：他们想学习更专业的设计软件，如PS}
+    - {例如：他们想学习如何用设计技能来接单赚钱}
+    - {例如：他们想获得一对一的作品指导}
+
+Format（格式）：
+请按照以下“LTV增长产品体系规划书”的格式，为我输出详细方案：
+
+### “LTV增长产品体系”规划书
+
+核心定位：[一句话定义我的长期价值主张]
+
+产品金字塔：
+
+1. 塔基：引流品/体验品
+   - 产品建议：[建议1-2个低价、高价值的引流产品]
+   - 建议定价：[例如：9.9元 - 49元]
+   - 战略目的：[例如：降低新用户信任门槛，扩大潜在客户池]
+
+2. 塔身：核心课程（您当前的课程）
+   - 产品名称：《{我的核心课程名称}》
+   - 当前定价：{课程售价}
+   - 战略目的：实现规模化转化，奠定品牌口碑。
+
+3. 塔顶：高阶课程/服务
+   - 产品建议：[根据学员的进阶渴望，建议1-2个高客单价的课程或服务]
+   - 建议定价：[例如：999元 - 2999元]
+   - 战略目的：筛选高价值用户，提供深度价值，提升LTV。
+
+4. 塔尖：尖端产品/终身服务
+   - 产品建议：[设计一个稀缺的、高溢价的、能提供极致体验的终极产品]
+   - 建议定价：[例如：5000元以上]
+   - 战略目的：服务最忠实的粉丝，树立品牌天花板，创造超级口碑。</pre></details></noscript>
+  </main>
+  <footer class="shell"><span data-i18n="credit">《课程营销学》配套提示词 · 姚金刚</span><span><a href="https://github.com/yaojingang/yao-open-prompts/blob/main/LICENSE">CC BY 4.0</a> · <span data-i18n="attribution">分享与改编请保留作者和来源</span></span></footer>
+  <script type="application/json" id="prompt-data">[{"slug": "mission-positioning", "zh": {"title": "使命：吸引真正欣赏你的用户", "chapter": "1.1", "stage": 1, "inputs": "专业经验、目标用户、核心能力、市场观察", "output": "使命定位方案与对比表", "followup": "请先向我提问，等待我的真实回答后再生成定位方案。", "prompt": "Role（角色）：\n你是一位顶级的课程营销战略顾问，尤其擅长运用“使命定位公式”帮助知识IP和老师挖掘并确立自己独特且富有吸引力的使命。你善于提问，能引导我进行深度思考。\n\nTask（任务）：\n请严格按照“使命定位公式”，通过与我对话的方式，帮我打磨出清晰的课程使命。\n\n使命定位公式：使命定位 = 场景角色（我的角色和需求场景） + 利他目标（为学员达成什么目标） + 差异化标签（我与他人有何不同）\n\n我的基本信息如下：\n- 我的专业领域与经验：{例如：10年经验的英语教师，专注于商务英语}\n- 我的目标用户群体是：{例如：希望提升职场竞争力的互联网从业者}\n- 我提供的核心内容或能力是：{例如：商务邮件写作和会议口语表达}\n- 我认为当前市场的特点是：{例如：竞争激烈，但大多课程偏理论，不实用}\n\n请你先基于我提供的信息，对我目前的定位做一个初步诊断，然后提出3个关键问题，引导我思考和明确我的“场景角色”、“利他目标”和“差异化标签”。最后，请帮我组合出2-3个使命定位方案，并分析各自的优劣。\n\nFormat（格式）：\n请严格按照以下结构输出：\n1. 初步诊断：对我现有信息的简要分析。\n2. 深度提问：提出三个引导性问题，分别对应公式的三个要素。\n3. 使命定位方案：在我回答你的问题后（此处请你模拟我的回答），提供2-3个完整的使命定位方案。\n4. 方案对比：用表格形式对比分析每个方案的优劣。", "path": "prompts/08-ai-marketing/course-marketing/mission-positioning.md"}, "en": {"title": "Mission: attract people who appreciate your work", "chapter": "1.1", "stage": 1, "inputs": "Experience, audience, core skills, market observations", "output": "Mission statements and comparison table", "followup": "Ask me the questions first, then wait for my real answers before creating the mission statements.", "prompt": "Role:\nYou are a leading course marketing strategy consultant. You specialize in the mission positioning formula to help knowledge creators and teachers define a distinctive, appealing mission. You ask questions that encourage careful reflection.\n\nTask:\nUse the mission positioning formula strictly. Help me refine a clear course mission through dialogue.\n\nMission positioning formula: mission positioning = situational role (my role and the situation in which users need it) + altruistic goal (the goal I help learners achieve) + differentiating label (what makes me distinctive).\n\nMy background:\n- My professional field and experience: {Example: an English teacher with 10 years of experience, specializing in business English}\n- My target audience: {Example: internet industry professionals seeking greater career competitiveness}\n- My core content or skills: {Example: business email writing and meeting communication}\n- My view of the current market: {Example: intense competition, with mostly theoretical courses that lack practical application}\n\nFirst diagnose my current positioning from this information. Ask three key questions to clarify my situational role, altruistic goal, and differentiating label. Then combine these into 2-3 mission statements and analyze their strengths and weaknesses.\n\nFormat:\nFollow this structure strictly:\n1. Initial diagnosis: a brief analysis of my information.\n2. Deeper questions: three guiding questions, one for each element of the formula.\n3. Mission statements: after I answer (simulate my answers here), provide 2-3 complete statements.\n4. Comparison: use a table to compare the strengths and weaknesses of each statement.", "path": "prompts-en/08-ai-marketing/course-marketing/mission-positioning.md"}}, {"slug": "personal-brand-persona", "zh": {"title": "人设：为什么是你而不是别人", "chapter": "1.2", "stage": 1, "inputs": "专业技能、品格优势、目标用户", "output": "专业人设、表达策略与用户共鸣分析", "followup": "请围绕我选定的人设，写出三种自我介绍。", "prompt": "Role（角色）：\n你是一位顶级个人品牌战略专家，精通市场营销与积极心理学。你的任务是帮助我，一位课程老师/知识专家，构建一个真实、独特且有吸引力的个人品牌人设。\n\nTask（任务）：\n请严格围绕“专业人设”、“性格人设”、“用户人格”这三个维度，对我进行分析和指导。\n\n我的基本信息如下：\n- 我的专业领域和核心技能是：{例如：儿童心理学，擅长沙盘游戏治疗}\n- 我认为自己最突出的3个品格优势是：{例如：善良、有洞察力、有创造力}\n- 我的目标用户群体是：{例如：对孩子教育感到焦虑的3-6岁儿童家长}\n\n请你基于以上信息，完成以下任务：\n1. 专业人设定位：为我构思3个具有差异化的“专业人设”方向，并说明理由。\n2. 性格人设融合：指导我如何将我的品格优势自然地融入到我的课程内容、社交媒体互动和日常表达中。\n3. 用户人格匹配：分析我的目标用户可能存在的“现实人格”和“理想人格”，并说明我的人设如何与他们产生共鸣。\n\nFormat（格式）：\n请按照以下结构清晰地输出你的建议：\n\n### 一、专业人设建议\n[方案一、方案二、方案三，并附简要说明]\n\n### 二、性格人设融合策略\n[针对每个品格优势，提供具体的融合建议]\n\n### 三、用户人格共鸣分析\n[分析用户人格，并阐述匹配逻辑]\n\n### 四、综合人设总结\n[用一句话总结最终的人设定位]", "path": "prompts/08-ai-marketing/course-marketing/personal-brand-persona.md"}, "en": {"title": "Persona: give learners a reason to choose you", "chapter": "1.2", "stage": 1, "inputs": "Skills, character strengths, audience", "output": "Brand positioning, expression strategy, audience fit", "followup": "Write three introductions based on my chosen persona.", "prompt": "Role:\nYou are a leading personal branding strategist with expertise in marketing and positive psychology. Help me, a course teacher or knowledge expert, build an authentic, distinctive, appealing personal brand persona.\n\nTask:\nAnalyze and advise me using three dimensions: professional persona, character persona, and user personality.\n\nMy background:\n- My professional field and core skills: {Example: child psychology, specializing in sandplay therapy}\n- My three strongest character traits: {Example: kindness, insight, creativity}\n- My target audience: {Example: parents of children aged 3-6 who feel anxious about their children's education}\n\nComplete these tasks:\n1. Professional positioning: propose three differentiated professional personas and explain each.\n2. Character integration: explain how to integrate my character strengths naturally into course content, social media interactions, and everyday expression.\n3. User personality fit: analyze the audience's possible current and ideal selves, and explain how my persona can resonate with them.\n\nFormat:\n### 1. Professional persona suggestions\n[Three options, each with a short explanation]\n\n### 2. Character integration strategy\n[Specific suggestions for each strength]\n\n### 3. User personality resonance analysis\n[Analyze user personality and explain the fit]\n\n### 4. Combined persona summary\n[Summarize the final positioning in one sentence]", "path": "prompts-en/08-ai-marketing/course-marketing/personal-brand-persona.md"}}, {"slug": "blue-ocean-market", "zh": {"title": "商业：如何找到你的蓝海市场", "chapter": "1.3", "stage": 1, "inputs": "赛道定义、竞品及其产品、价格、渠道、宣传", "output": "竞争格局、市场空白与差异化建议", "followup": "请列出验证这个市场机会需要访谈的问题和真实数据。", "prompt": "Role（角色）：\n你是一位顶尖的市场战略分析师，精通蓝海战略和4P营销理论。你的任务是引导我使用“蓝海市场差异化定位表”的思维框架，来分析我的目标市场，并找到差异化的机会点。\n\nTask（任务）：\n请一步步指导我完成市场分析。我的信息如下：\n\n- 我的赛道定义：{例如：面向30-40岁职场妈妈的时间管理线上课程}\n- 我的主要竞争对手分析 (我的初步判断)：\n  - 对手1 (类型)：{例如：知识付费App上的大V}\n  - 对手1 (4P分析)：产品-{中/内容不错但服务浅}，价格-{低/客单价99元}，渠道-{高/平台流量大}，宣传-{高/个人IP响亮}\n  - 对手2 (类型)：{例如：专注时间管理的垂直App}\n  - 对手2 (4P分析)：产品-{高/工具强大但课程弱}，价格-{中/年费300元}，渠道-{中/应用商店}，宣传-{低/口碑传播}\n  - (你可以根据需要增加更多对手)\n\n请根据我提供的信息，完成以下工作：\n1. 分析市场格局：总结当前市场的主要竞争区域，指出哪些象限（例如“低价-高宣传”）已经非常拥挤。\n2. 识别市场空白：明确指出在“产品”和“价格”这两个维度上，目前最明显的市场空白或弱竞争区是什么。\n3. 提出蓝海建议：基于发现的市场空白，为我提出2-3个具体的、差异化的产品定位建议，并解释为什么这个定位有机会成功。\n\nFormat（格式）：\n请严格按照以下结构输出：\n\n### 1. 市场竞争格局分析\n[总结并描述当前市场的竞争态势]\n\n### 2. 蓝海市场机会点\n[明确指出“产品-价格”矩阵中的空白或弱竞争区域]\n\n### 3. 差异化战略建议\n建议一：[提出具体的定位建议，并阐述其可行性]\n建议二：[提出第二个定位建议，并阐述其可行性]", "path": "prompts/08-ai-marketing/course-marketing/blue-ocean-market.md"}, "en": {"title": "Market: find your blue ocean", "chapter": "1.3", "stage": 1, "inputs": "Market definition and competitors with their product, price, place, and promotion", "output": "Competitive map, market gaps, differentiation proposals", "followup": "List the interview questions and real data needed to validate this opportunity.", "prompt": "Role:\nYou are a market strategy analyst with expertise in blue ocean strategy and the marketing 4Ps. Guide me through the blue ocean differentiation positioning table to analyze my target market and identify opportunities to differentiate.\n\nTask:\nGuide me through the market analysis step by step. My information:\n- My market definition: {Example: online time-management courses for working mothers aged 30-40}\n- My initial competitor analysis:\n  - Competitor 1, type: {Example: a prominent creator on a paid knowledge platform}\n  - Competitor 1, 4Ps: product-{medium/good content but limited service}, price-{low/99 yuan}, place-{high/large platform traffic}, promotion-{high/strong personal brand}\n  - Competitor 2, type: {Example: a specialist time-management app}\n  - Competitor 2, 4Ps: product-{high/strong tools but weak courses}, price-{medium/300 yuan per year}, place-{medium/app store}, promotion-{low/word of mouth}\n  - Add more competitors as needed.\n\nComplete these tasks:\n1. Analyze competition: summarize the main competitive areas and identify crowded quadrants, such as low price and high promotion.\n2. Identify gaps: identify the clearest unserved or weakly contested areas in product and price.\n3. Suggest blue ocean opportunities: propose 2-3 specific differentiated product positions and explain their potential.\n\nFormat:\n### 1. Market competition analysis\n[Summarize the competitive situation]\n\n### 2. Blue ocean opportunities\n[Identify gaps or weakly contested areas in the product-price matrix]\n\n### 3. Differentiation strategy\nSuggestion 1: [Specific positioning and feasibility]\nSuggestion 2: [Another positioning and feasibility]", "path": "prompts-en/08-ai-marketing/course-marketing/blue-ocean-market.md"}}, {"slug": "course-pain-point", "zh": {"title": "课程：你要解决的是什么痛点", "chapter": "1.4", "stage": 1, "inputs": "课程构想、用户画像、具体靶心人", "output": "行动路径、痛点矩阵与课程切入点", "followup": "请把核心痛点转化为五个用户访谈问题。", "prompt": "Role（角色）：\n你是一位顶级的用户体验研究专家和教育产品经理，精通“痛点定位表”和“靶心人定位法”。你的任务是引导我深度剖析目标用户，找到我课程应该聚焦的核心痛点。\n\nTask（任务）：\n请一步步指导我完成用户痛点分析。我的信息如下：\n\n- 我的课程构想：{例如：一门教程序员如何有效进行公开演讲的课程}\n- 我的目标用户画像（抽象）：{例如：25-35岁的程序员，技术能力强，但表达能力偏弱}\n- 我的“靶心人”（具体）：{例如：我的朋友阿伟，一位资深后端工程师，技术分享时总因为太紧张、内容太枯燥，导致听众听不懂、效果很差。}\n\n请根据我提供的信息，完成以下工作：\n1. 构建用户行动路径：为我的“靶心人”阿伟，构建一个从“接到演讲任务”到“完成演讲”的典型行动路径。\n2. 分析各环节痛点：在路径的每一步，使用“效果、价格、形象、可靠、门槛”这五个维度，分析阿伟可能遇到的最大阻碍是什么。\n3. 诊断核心痛点：综合所有分析，用一句话总结出阿伟最核心、最急需解决的痛点是什么。\n4. 提出“止痛药”方案：针对这个核心痛点，为我的课程提出一个具体的产品定位或教学侧重点建议。\n\nFormat（格式）：\n请严格按照以下结构输出：\n\n### 1. “靶心人”行动路径\n[列出清晰的步骤]\n\n### 2. 痛点定位分析\n[分步骤阐述每个环节可能存在的、基于五个维度的痛点]\n\n### 3. 核心痛点诊断\n[用一句话明确指出最关键的痛点]\n\n### 4. “止痛药”式课程建议\n[提出一个具体的、能精准解决该痛点的产品方向]", "path": "prompts/08-ai-marketing/course-marketing/course-pain-point.md"}, "en": {"title": "Course: identify the pain point to solve", "chapter": "1.4", "stage": 1, "inputs": "Course idea, audience profile, a specific target learner", "output": "Action journey, pain-point matrix, course focus", "followup": "Turn the core pain point into five learner interview questions.", "prompt": "Role:\nYou are a user experience researcher and education product manager with expertise in the pain-point positioning table and the specific target-person method. Guide me through a detailed analysis of a target learner to identify the core pain point my course should address.\n\nTask:\nGuide me step by step. My information:\n- Course idea: {Example: a public-speaking course for programmers}\n- Abstract audience profile: {Example: programmers aged 25-35 with strong technical skills and weaker communication skills}\n- Specific target person: {Example: my friend Awei, a senior backend engineer who gets nervous during technical talks and presents dry content, leaving the audience confused}\n\nComplete these tasks:\n1. Build an action journey for Awei from receiving a speaking assignment to completing the talk.\n2. Analyze pain points at each step using five dimensions: outcome, price, image, reliability, and entry barrier. Identify the biggest obstacle.\n3. Diagnose the most urgent core pain point in one sentence.\n4. Suggest a course positioning or teaching focus that directly addresses it.\n\nFormat:\n### 1. Target person's action journey\n[Clear steps]\n\n### 2. Pain-point positioning analysis\n[Step-by-step analysis using all five dimensions]\n\n### 3. Core pain-point diagnosis\n[One sentence identifying the key pain point]\n\n### 4. Pain-relief course suggestion\n[A specific product direction that addresses the pain point]", "path": "prompts-en/08-ai-marketing/course-marketing/course-pain-point.md"}}, {"slug": "course-title", "zh": {"title": "名称：如何让课程标题自带广告", "chapter": "2.1", "stage": 2, "inputs": "核心内容、目标用户、最大痛点、独特优势与背书", "output": "五类十个标题方案与综合推荐", "followup": "请解释这三个候选标题各自适合什么用户和渠道。", "prompt": "Role（角色）：\n你是一位顶尖的营销文案专家与课程命名顾问，尤其擅长运用心理学原理为知识产品打造“自带广告效果”的标题。你精通以下五种标题优化策略：指出用户利益、营造冲突感、创造视觉感、打造附着力、突出权威感。\n\nTask（任务）：\n我的新课程需要一个极具吸引力的标题。请你根据我提供的课程信息，严格按照上述五种策略，分别为我的课程构思2个标题方案（共10个），并最后给出一个综合推荐。\n\n我的课程信息：\n- 核心内容：{例如：教用户如何使用AI绘画工具Midjourney进行商业插画创作}\n- 目标用户：{例如：零基础的设计爱好者、希望提升效率的插画师}\n- 用户最大痛点：{例如：想学但觉得技术门槛高，或者画得慢无法商业化接单}\n- 我的独特优势/权威背书：{例如：我曾用Midjourney作品获得国际奖项，或者我是某设计公司艺术总监}\n\nFormat（格式）：\n请严格按照以下格式输出，确保结构清晰：\n\n### 课程标题优化方案\n\n1. 策略一：指出用户利益\n   - 方案1：\n   - 方案2：\n\n2. 策略二：营造冲突感\n   - 方案1：\n   - 方案2：\n\n3. 策略三：创造视觉感\n   - 方案1：\n   - 方案2：\n\n4. 策略四：打造附着力\n   - 方案1：\n   - 方案2：\n\n5. 策略五：突出权威感\n   - 方案1：\n   - 方案2：\n\n---\n### 综合推荐\n综合来看，我最推荐的标题是：[在此处填写你认为最佳的标题]\n理由：[简要说明该标题为何最佳，比如它巧妙融合了哪两种策略]", "path": "prompts/08-ai-marketing/course-marketing/course-title.md"}, "en": {"title": "Name: make your course title communicate its value", "chapter": "2.1", "stage": 2, "inputs": "Content, audience, main pain point, strengths and evidence", "output": "Ten title proposals across five strategies and a recommendation", "followup": "Explain which audience and channel suit each of these three titles.", "prompt": "Role:\nYou are a marketing copywriter and course naming consultant. You use psychology to create knowledge-product titles that communicate their value immediately. You know five title strategies: highlight user benefits, create conflict, create a visual impression, build associations, and emphasize authority.\n\nTask:\nMy new course needs an appealing title. Based on the information below, propose two titles for each of the five strategies, for ten titles in total. Finish with an overall recommendation.\n\nMy course:\n- Core content: {Example: commercial illustration with the AI image tool Midjourney}\n- Target audience: {Example: design enthusiasts with no experience and illustrators seeking greater efficiency}\n- Main pain point: {Example: the tools feel difficult to learn, or illustration is too slow to take paid commissions}\n- My distinctive advantage or credentials: {Example: an international award for a Midjourney work, or an art director role at a design company}\n\nFormat:\n### Course title proposals\n1. Highlight user benefits\n   - Option 1:\n   - Option 2:\n2. Create conflict\n   - Option 1:\n   - Option 2:\n3. Create a visual impression\n   - Option 1:\n   - Option 2:\n4. Build associations\n   - Option 1:\n   - Option 2:\n5. Emphasize authority\n   - Option 1:\n   - Option 2:\n\n### Overall recommendation\nRecommended title: [The best title]\nReason: [Explain why, including any combination of strategies]", "path": "prompts-en/08-ai-marketing/course-marketing/course-title.md"}}, {"slug": "course-outline", "zh": {"title": "大纲：如何让你的大纲说人话", "chapter": "2.2", "stage": 2, "inputs": "课程主题、学员画像、核心痛点、专业知识点列表", "output": "知识点翻译与模块化大纲", "followup": "请补充每个模块的学习目标和可验收作业。", "prompt": "Role（角色）：\n你是一位金牌课程设计师与教学法专家，你深知“知识诅咒”对教学效果的危害。你的核心能力是站在用户视角，将任何领域的专业知识点，转化为“说人话”的、有逻辑、有吸引力的课程大纲。你尤其擅长运用“点线面体”原则进行结构化设计。\n\nTask（任务）：\n我的新课程需要一个“说人话”的大纲。请你根据我提供的课程信息，完成以下两个核心任务：\n1.  内容翻译：将我提供的每一个“专业知识点”，都转化为一个用户关心的“痛点问题”或“收益点”。\n2.  结构重组：基于翻译后的内容，运用“分类法”或“因果法”，帮我设计一个包含3-4个模块的、逻辑清晰的完整课程大纲。\n\n我的课程信息：\n- 课程主题：{例如：PPT设计与制作}\n- 目标用户画像：{例如：经常需要做汇报、写方案的职场白领}\n- 用户核心痛点：{例如：做PPT费时费力，但效果总是不好，被老板批评}\n- 我想讲授的专业知识点列表：\n    - 知识点1：{例如：母版与版式设计}\n    - 知识点2：{例如：色彩搭配原理}\n    - 知识点3：{例如：信息图表化呈现}\n    - 知识点4：{例如：动画效果与切换逻辑}\n    - 知识点5：{例如：演讲者模式的应用}\n\nFormat（格式）：\n请严格按照以下格式输出，让我看到你的思考过程和最终成果：\n\n### 第一步：从“专业视角”到“用户视角”的内容翻译\n\n- 母版与版式设计 -\u003e 痛点问题：如何告别加班，10分钟搭好PPT框架？\n- 色彩搭配原理 -\u003e 痛点问题：为什么我的PPT看起来总有廉价感？\n- （请继续完成所有知识点的翻译）\n\n### 第二步：逻辑化大纲重组\n\n模块一：效率篇 - 让你做PPT又快又好\n   - 1.1 （翻译后的标题1）\n   - 1.2 （翻译后的标题2）\n\n模块二：美学篇 - 告别丑PPT，让老板眼前一亮\n   - 2.1 （翻译后的标题3）\n   - 2.2 （翻译后的标题4）\n\n模块三：呈现篇 - 从“汇报”到“征服”\n   - 3.1 （翻译后的标题5）\n   - 3.2 （......）\n\n（请为我构建完整的3-4个模块）", "path": "prompts/08-ai-marketing/course-marketing/course-outline.md"}, "en": {"title": "Outline: use language your learners understand", "chapter": "2.2", "stage": 2, "inputs": "Course topic, learner profile, core pain point, list of technical concepts", "output": "Learner-friendly concepts and a modular outline", "followup": "Add a learning objective and assessable assignment to each module.", "prompt": "Role:\nYou are a course designer and pedagogy expert. You understand how the curse of knowledge harms teaching. You turn professional concepts into logical, appealing outlines from the learner's perspective, using the point-line-plane-volume principle for structured design.\n\nTask:\nHelp me optimize my course outline. I will provide its core professional concepts. Complete these steps:\n1. Translate each concept from professional language into a question, pain point, or benefit learners care about.\n2. Organize the translated material into 3-4 logical learning modules using classification or causal relationships, with understandable and appealing module titles.\n\nMy course information:\n- Course topic: {Example: PPT design and production}\n- Target learner profile: {Example: office workers who frequently prepare reports and proposals}\n- Core learner pain point: {Example: making slides takes too much time and effort, the results are poor, and their boss criticizes them}\n- Professional concepts I plan to teach:\n  - {Example: master slides and layout design}\n  - {Example: principles of color matching}\n  - {Example: presenting information in charts}\n  - {Example: animation effects and transition logic}\n  - {Example: using presenter view}\n\nFormat:\n### Step 1. Translate professional concepts into learner language\n- Master slide setup -\u003e Learner question: How can I build a slide framework in ten minutes?\n- Color matching -\u003e Pain-point question: Why do my slides look cheap?\n- Continue for every concept.\n\n### Step 2. Reorganize into logical modules\nModule 1: Efficiency, make slides quickly and well\n  - 1.1 [Translated title]\n  - 1.2 [Translated title]\nModule 2: Aesthetics, improve your slides' appearance\n  - 2.1 [Translated title]\n  - 2.2 [Translated title]\nModule 3: Presentation, make your report persuasive\n  - 3.1 [Translated title]\n  - 3.2 [Translated title]\nBuild a complete outline with 3-4 modules.", "path": "prompts-en/08-ai-marketing/course-marketing/course-outline.md"}}, {"slug": "lesson-behavior-design", "zh": {"title": "内容：如何改变认知和唤醒行为", "chapter": "2.3", "stage": 2, "inputs": "单节课主题、知识点、希望学员采取的行为", "output": "内容四步法与福格行为模型教学方案", "followup": "请按四十五分钟的课时安排每个环节。", "prompt": "Role（角色）：\n你是一位世界级的课程体验设计师与行为心理学专家。你坚信课程的成功不在于传递了多少知识，而在于改变了多少行为。你极其擅长运用“内容四步法”（场景挑战+无效方案+新的方案+新的效果）和“福格行为模型”（B=MAP）来设计一节高转化、高完课率的课程。\n\nTask（任务）：\n请为我设计一节核心课程的完整教学方案。我会提供课程的基本信息，请你帮我构建一个既能改变认知，又能唤醒行为的教学流程。\n\n我的课程信息：\n- 课程名称：{例如：《零基础也能学会的公众演讲课》}\n- 这节课的主题：{例如：如何克服上台紧张}\n- 这节课要传递的核心知识点：{例如：紧张的生理原因、呼吸放松法、视觉焦点法}\n- 这节课最希望唤醒的学员关键行为：{例如：让学员完成一次3分钟的录音或录像演讲练习}\n\nFormat（格式）：\n请严格按照以下两个层次，为我输出一份详细的教学设计方案：\n\n### 层次一：改变认知（内容四步法设计）\n\n请为这节课设计一个引人入胜的开场和核心内容讲述流程。\n1.  场景挑战：（请设计一个让学员瞬间代入的、关于“上台紧张”的具体场景）\n2.  无效方案：（请描述大多数人面对紧张时，常做的、但效果不佳的错误方法，如“深呼吸”、“告诉自己别紧张”）\n3.  新的方案：（请将我提供的“呼吸放松法”等知识点，包装成一个简单、新颖、易操作的方法论，并给它起个好记的名字）\n4.  新的效果：（请描绘学员掌握新方法后，能达到的理想状态）\n\n---\n### 层次二：唤醒行为（B=MAP模型设计）\n\n请设计具体的环节或工具，确保学员听完课后会立刻去行动。\n1.  如何提升动机 (Motivation)：（请设计1-2个具体方法，如展示对比案例、描绘成功愿景等）\n2.  如何提升能力 (Ability)：（请设计一个“极简版”的课后作业，把行动门槛降到最低，让学员无法拒绝）\n3.  如何增加提示 (Prompt)：（请设计1-2个具体的提示方案，如打卡模板、社群活动、行为锚点建议等）", "path": "prompts/08-ai-marketing/course-marketing/lesson-behavior-design.md"}, "en": {"title": "Content: change understanding and prompt action", "chapter": "2.3", "stage": 2, "inputs": "One lesson topic, key concepts, desired learner action", "output": "Four-step lesson plan and Fogg Behavior Model activities", "followup": "Schedule each activity within a 45-minute lesson.", "prompt": "Role:\nYou are a course experience designer and behavioral psychology expert. You measure course success through the behavior learners change. You specialize in the four-step content method (situational challenge + ineffective approach + new approach + new outcome) and the Fogg Behavior Model (B=MAP) to design courses with strong completion and action rates.\n\nTask:\nDesign a complete teaching plan for one core lesson, with a process that changes understanding and prompts action.\n\nMy lesson information:\n- Course name: {Example: public speaking for complete beginners}\n- Lesson topic: {Example: overcoming stage fright}\n- Core concepts: {Example: physiological causes of nervousness, breathing relaxation, visual focus techniques}\n- Key learner behavior to prompt: {Example: complete a three-minute audio or video speaking practice}\n\nFormat:\n### Level 1. Change understanding with the four-step content method\nDesign an engaging opening and teaching flow.\n1. Situational challenge: [A recognizable stage-fright situation]\n2. Ineffective approach: [Common unsuccessful responses, such as taking deep breaths or telling yourself to calm down]\n3. New approach: [Package my breathing relaxation and related concepts into a simple, novel, actionable method with a memorable name]\n4. New outcome: [Describe the state learners can reach after mastering it]\n\n### Level 2. Prompt action with B=MAP\nDesign activities or tools that help learners act immediately.\n1. Motivation: [1-2 methods, such as contrasting examples or a picture of success]\n2. Ability: [A minimal assignment with a very low barrier to action]\n3. Prompt: [1-2 prompts, such as a check-in template, community activity, or behavioral anchor]", "path": "prompts-en/08-ai-marketing/course-marketing/lesson-behavior-design.md"}}, {"slug": "lesson-materials", "zh": {"title": "材料：如何让吸引力增加10倍", "chapter": "2.4", "stage": 2, "inputs": "课程名称、单节课主题、核心知识点", "output": "故事、图表、金句与心理诱因方案", "followup": "请优先采用有真实出处的案例，并标注需要核实的信息。", "prompt": "Role（角色）：\n你是一位首席课程体验官与营销心理学顾问，深谙如何将枯燥的知识点包装成引人入胜、极具吸引力的教学内容。你尤其擅长创造性地运用“故事、图片、金句”等材料，并结合“权威感、社会认同、稀缺性”等心理诱因。\n\nTask（任务）：\n请帮助我丰富一节课的内容，让它的吸引力增加10倍。我会提供这节课的核心知识点，请你为我进行创意策划，提供具体的“材料”和“心理诱因”植入方案。\n\n我的课程信息：\n- 课程名称：{例如：《个人品牌IP打造课》}\n- 这节课的主题：{例如：如何写出让用户记住的个人简介}\n- 这节课的核心干货/知识点（请用无趣、理性的方式陈述）：{例如：个人简介应包含三个要素：身份标签、价值主张、信任背书。}\n\nFormat（格式）：\n请严格按照以下结构，为我提供一份详细的“课程内容魅力升级方案”：\n\n### 第一部分：丰富课程材料（让内容活起来）\n\n1.  故事/案例建议：\n    - 请构思一个简短的、有代入感的开场故事，说明个人简介的重要性。\n2.  图片/图表建议：\n    - 请设计一个直观的视觉化呈现方案，用来解释简介的三个要素。\n3.  金句提炼：\n    - 请帮我提炼2-3句关于“个人简介”的、易于记忆和传播的金句。\n\n---\n### 第二部分：植入心理诱因（让吸引力加倍）\n\n1.  如何营造「权威感」：\n    - 建议1：\n    - 建议2：\n2.  如何运用「社会认同」：\n    - 建议1：\n    - 建议2：\n3.  如何创造「稀缺性」或「互惠」：\n    - 建议1：\n    - 建议2：", "path": "prompts/08-ai-marketing/course-marketing/lesson-materials.md"}, "en": {"title": "Materials: increase your lesson’s appeal", "chapter": "2.4", "stage": 2, "inputs": "Course name, lesson topic, core concept", "output": "Stories, visual concepts, memorable lines, psychological triggers", "followup": "Prioritize traceable real examples and mark information that needs verification.", "prompt": "Role:\nYou are a course experience lead and marketing psychology consultant. You turn dry concepts into engaging teaching content using stories, images, memorable lines, and psychological triggers such as authority, social proof, and scarcity.\n\nTask:\nHelp me enrich a lesson and increase its appeal tenfold. I will provide its core concept. Propose specific materials and ways to integrate psychological triggers.\n\nMy course information:\n- Course name: {Example: build your personal brand}\n- Lesson topic: {Example: write a personal introduction people remember}\n- Core knowledge, stated plainly and logically: {Example: an introduction should include identity, value proposition, and trust evidence}\n\nFormat:\n### Part 1. Enrich the teaching materials\n1. Story or case: propose a short, relatable opening story showing why a personal introduction matters.\n2. Image or diagram: propose a clear visual explaining its three elements.\n3. Memorable lines: write 2-3 lines about personal introductions that are easy to remember and share.\n\n### Part 2. Integrate psychological triggers\n1. Create authority\n   - Suggestion 1:\n   - Suggestion 2:\n2. Use social proof\n   - Suggestion 1:\n   - Suggestion 2:\n3. Use scarcity or reciprocity\n   - Suggestion 1:\n   - Suggestion 2:", "path": "prompts-en/08-ai-marketing/course-marketing/lesson-materials.md"}}, {"slug": "course-framework", "zh": {"title": "模型：如何让价值感提升100倍", "chapter": "2.5", "stage": 2, "inputs": "课程主题、零散方法步骤、用户核心问题", "output": "候选模型结构与命名建议", "followup": "请用一个具体案例检验这个模型能否完整解释问题。", "prompt": "Role（角色）：\n你是一位顶级的知识体系架构师与理论模型创建专家。你擅长洞察复杂信息背后的核心规律，能够将零散的方法论和经验，提炼、归纳并升华为一个结构清晰、易于传播的原创理论模型。你精通“演绎法”、“归纳法”和“改造法”三种模型构建方式。\n\nTask（任务）：\n请帮助我为我的课程创建一个独特的理论模型，以提升课程的价值感和独特性。我会提供课程的核心方法论（目前可能比较零散），请你：\n1.  分析我的方法论，并建议最适合用哪种方法（演绎/归纳/改造）来构建模型。\n2.  基于所选方法，为我设计2-3个候选的模型结构草案。\n3.  为最优的模型草案，建议3-5个朗朗上口、便于传播的名字。\n\n我的课程信息：\n- 我的课程主题：{例如：如何进行有效的深度阅读}\n- 我的核心方法论或步骤（请用散点、列表的方式描述）：\n    - {例如：先看目录和序言，了解大概}\n    - {例如：阅读时要划线、做笔记}\n    - {例如：读完后要尝试复述给别人听}\n    - {例如：要关联自己已有的知识}\n    - {例如：要思考如何将书中内容用到工作生活中}\n- 我的目标是帮助用户解决什么核心问题：{例如：读书过目就忘，无法学以致用}\n\nFormat（格式）：\n请按照以下咨询报告的格式，为我提供方案：\n\n### 课程模型构建咨询报告\n\n1. 核心方法论分析及构建方法建议：\n   [在此处分析我提供的方法论，并说明为什么推荐使用演绎/归纳/改造法]\n\n2. 模型结构草案 (提供2个选项):\n   * 草案A：[模型名称]\n     - 步骤1：[描述]\n     - 步骤2：[描述]\n     - 步骤3：[描述]\n   * 草案B：[模型名称]\n     - 维度1：[描述]\n     - 维度2：[描述]\n     - 维度3：[描述]\n\n3. 最终模型命名建议 (针对最优草案):\n   - 命名方案1 (类比法):\n   - 命名方案2 (概括法):\n   - 命名方案3 (图形/符号法):\n   - 综合推荐：[你最推荐的名字]", "path": "prompts/08-ai-marketing/course-marketing/course-framework.md"}, "en": {"title": "Framework: make your course’s value easier to see", "chapter": "2.5", "stage": 2, "inputs": "Course topic, methods and steps, core learner problem", "output": "Candidate frameworks and naming proposals", "followup": "Test whether the framework explains a concrete case completely.", "prompt": "Role:\nYou are a knowledge-system architect and theoretical framework designer. You identify patterns in complex information and turn scattered methods and experience into a clear, shareable original framework. You know three construction methods: deduction, induction, and adaptation.\n\nTask:\nCreate a distinctive framework for my course to communicate its value and uniqueness. I will provide its currently scattered methods.\n1. Analyze the methods and recommend deduction, induction, or adaptation.\n2. Propose 2-3 candidate structures using that method.\n3. Suggest 3-5 memorable, shareable names for the strongest structure.\n\nMy course information:\n- Topic: {Example: effective deep reading}\n- Core methods or steps, as a list:\n  - {Example: read the table of contents and preface first}\n  - {Example: underline and take notes while reading}\n  - {Example: retell what you read afterward}\n  - {Example: connect ideas to existing knowledge}\n  - {Example: consider how to apply the material in work and life}\n- Core learner problem: {Example: forgetting what they read and struggling to apply it}\n\nFormat:\n### Course framework consulting report\n1. Analysis and construction-method recommendation\n   [Analyze my methods and explain the choice]\n2. Candidate structures, show two options\n   - Draft A: [Name]\n     - Step 1: [Description]\n     - Step 2: [Description]\n     - Step 3: [Description]\n   - Draft B: [Name]\n     - Dimension 1: [Description]\n     - Dimension 2: [Description]\n     - Dimension 3: [Description]\n3. Naming proposals for the best structure\n   - Analogy-based name:\n   - Summary-based name:\n   - Visual or symbol-based name:\n   - Overall recommendation:", "path": "prompts-en/08-ai-marketing/course-marketing/course-framework.md"}}, {"slug": "course-delivery-value", "zh": {"title": "交付：如何让用户感觉很超值", "chapter": "2.6", "stage": 2, "inputs": "课程名称、核心内容、售价、当前交付方式", "output": "功能、情绪、资产三类价值提升方案", "followup": "请按实施成本与学员收益排序，选出三个优先动作。", "prompt": "Role（角色）：\n你是一位顶级课程交付体验设计师与用户价值增长顾问。你深知，用户口碑来源于“超值感”。你擅长运用“功能价值、情绪价值、资产价值”三位一体的模型，为线上课程设计出高附加值的交付方案。\n\nTask（任务）：\n请为我的线上课程策划一套“超值感”交付方案。我会提供课程的基本情况，请你围绕“功能价值”、“情绪价值”、“资产价值”三个维度，分别为我提出3-5个具体的、可落地的创意建议。\n\n我的课程信息：\n- 课程名称：{例如：《零基础油画入门课》}\n- 课程的核心内容：{例如：讲解油画的基本技法、色彩理论和构图}\n- 课程的当前售价：{例如：499元}\n- 当前的基础交付方式：{例如：20节录播视频+一些电子版参考图}\n\nFormat（格式）：\n请按照以下“三位一体价值提升方案”的格式，为我输出策划建议：\n\n### 《{课程名称}》超值感交付方案\n\n一、 功能价值提升（让学员感觉“很有用”）\n   1.  [建议1：例如，提供“新手油画工具采购清单与避坑指南”PDF]\n   2.  [建议2：例如，每月一次“作品诊断”直播课]\n   3.  [建议3：...]\n\n二、 情绪价值提升（让学员感觉“很开心”）\n   1.  [建议1：例如，举办“云画展”，在线展示学员优秀作品，增加其荣誉感]\n   2.  [建议2：例如，建立打卡小程序，完成一幅画就点亮一枚“艺术家勋章”]\n   3.  [建议3：...]\n\n三、 资产价值提升（让学员感觉“买赚了”）\n   1.  [建议1：例如，宣布课程为“永久更新制”，未来新增画法或技巧，老学员全部免费学]\n   2.  [建议2：例如，设置阶梯式涨价计划，并公开宣传，让早期学员感受到“投资”价值]\n   3.  [建议3：...]", "path": "prompts/08-ai-marketing/course-marketing/course-delivery-value.md"}, "en": {"title": "Delivery: help learners feel they received great value", "chapter": "2.6", "stage": 2, "inputs": "Course name, content, price, current delivery format", "output": "Functional, emotional, and asset-value delivery ideas", "followup": "Rank the ideas by implementation cost and learner benefit, then choose three priorities.", "prompt": "Role:\nYou are a course delivery experience designer and user-value growth consultant. You know that a sense of exceptional value supports word of mouth. Use a three-part model of functional value, emotional value, and asset value to design added-value delivery for an online course.\n\nTask:\nPlan a delivery experience that feels exceptionally valuable. Using my course information, propose 3-5 specific, practical ideas for each value dimension.\n\nMy course information:\n- Course name: {Example: oil painting for beginners}\n- Core content: {Example: basic techniques, color theory, and composition}\n- Current price: {Example: 499 yuan}\n- Current basic delivery: {Example: 20 recorded videos and digital reference images}\n\nFormat:\n### Exceptional-value delivery plan for {course name}\n1. Functional value, help learners find it useful\n   1. [Example: a beginner's oil painting supplies and pitfalls PDF]\n   2. [Example: a monthly live artwork review]\n   3. [Additional ideas]\n2. Emotional value, help learners enjoy the experience\n   1. [Example: an online exhibition of learners' best work]\n   2. [Example: a check-in app with an artist badge for each finished painting]\n   3. [Additional ideas]\n3. Asset value, help learners feel their purchase gains value\n   1. [Example: lifetime updates, with future techniques free for existing learners]\n   2. [Example: an openly communicated staged price increase that gives early learners a sense of investment value]\n   3. [Additional ideas]", "path": "prompts-en/08-ai-marketing/course-marketing/course-delivery-value.md"}}, {"slug": "course-pricing", "zh": {"title": "价格：定价并不由成本决定", "chapter": "3.1", "stage": 3, "inputs": "主题、用户、核心价值、竞品价格、品牌定位", "output": "价格基础分析与套餐、早鸟策略", "followup": "请把定价建议中的假设与需要验证的数据分开列出。", "prompt": "Role（角色）：\n你是一位资深的营销战略家与课程定价专家，你深知“价格本身就是一种营销”。你擅长综合运用“定价法则”和“心理学策略”，为知识产品设计出既能彰显价值又能促进销售的价格体系。\n\nTask（任务）：\n请为我的新课程设计一套完整的定价与销售策略。我会提供课程的基本信息，请你严格按照“两步定价法”为我提供一份策略建议书。\n\n我的课程信息：\n- 我的课程主题：{例如：零基础学Python数据分析}\n- 我的目标用户：{例如：希望转行或提升数据处理能力的职场人}\n- 课程能帮用户解决的核心问题/创造的核心价值：{例如：掌握核心技能，能够胜任数据分析岗位，提升职业竞争力}\n- 同赛道主要竞品的价格区间：{例如：入门课普遍在300-800元，进阶项目实战课在1500-4000元}\n- 我期望的品牌定位：{例如：定位为高端、实战、能真正帮学员找到工作的精品课程}\n\nFormat（格式）：\n请按照以下“课程定价策略建议书”的格式，为我输出方案：\n\n### 《{课程主题}》定价策略建议书\n\n第一步：确定合理价格基础（定价法则分析）\n1.  竞品视角分析：根据你提供的竞品价格，你的合理价格区间是...\n2.  用户价值分析：这门课为用户创造的价值（如找到工作后的薪资提升）远高于课程本身，因此我们有底气制定一个...的价格。\n3.  品牌战略分析：基于你的高端定位，价格应...\n4.  【价格基础建议】：综合以上三点，我建议将课程的基础价格定在 [给出一个具体的价格] 左右。\n\n第二步：设计价格竞争力策略（心理策略组合）\n基于上述基础价格，我为你设计一套“三板斧”发售策略：\n1.  策略一：高价锚定\n    - [请设计一个更高价格的产品或服务作为锚点，例如一对一咨询]\n2.  策略二：折中选项\n    - [请设计一个包含“标准版”、“Pro版”、“豪华版”的套餐体系，并明确指出哪个是主推选项]\n3.  策略三：限时优惠（制造损失厌恶）\n    - [请设计一个有吸引力的早鸟优惠方案]\n\n【综合发布建议】\n[总结一下，并给出一个最终的、清晰的发布价格策略]", "path": "prompts/08-ai-marketing/course-marketing/course-pricing.md"}, "en": {"title": "Price: build a value-based pricing strategy", "chapter": "3.1", "stage": 3, "inputs": "Topic, audience, value, competitor prices, brand positioning", "output": "Base-price analysis, packages, early-bird strategy", "followup": "List the pricing assumptions and the data required to validate them separately.", "prompt": "Role:\nYou are a marketing strategist and course pricing expert. You understand that price is a marketing tool. Combine pricing principles and psychology to create a knowledge-product price system that communicates value and supports sales.\n\nTask:\nDesign a complete pricing and sales strategy using the two-step pricing method below.\n\nMy course information:\n- Topic: {Example: Python data analysis for beginners}\n- Audience: {Example: professionals changing careers or improving data skills}\n- Core problem solved or value created: {Example: develop skills for data analysis roles and improve career competitiveness}\n- Competitor price ranges: {Example: 300-800 yuan for introductory courses, 1,500-4,000 yuan for advanced project-based courses}\n- Desired brand positioning: {Example: premium, practical training that helps learners find work}\n\nFormat:\n### Pricing strategy proposal for {course topic}\nStep 1. Establish a reasonable base price\n1. Competitor perspective: [Reasonable range based on the provided prices]\n2. Learner value: [Consider the value created, such as potential salary growth]\n3. Brand strategy: [Price implications of the intended positioning]\n4. Base-price recommendation: [A specific recommended price]\n\nStep 2. Build price competitiveness with psychological strategies\n1. High-price anchor: [Design a higher-priced offer, such as one-to-one consulting]\n2. Middle option: [Design standard, pro, and premium packages, identifying the main offer]\n3. Limited-time offer and loss aversion: [Design an appealing early-bird offer]\n\nOverall launch recommendation:\n[A final, clear launch pricing strategy]", "path": "prompts-en/08-ai-marketing/course-marketing/course-pricing.md"}}, {"slug": "course-channels", "zh": {"title": "渠道：如何让课程触手可及", "chapter": "3.2", "stage": 3, "inputs": "课程主题、用户画像、可投入时间、内容特长", "output": "三个月自有渠道计划与外部合作话术", "followup": "请把第一个月拆成每周行动，并控制在我的时间预算内。", "prompt": "Role（角色）：\n你是一位顶级的课程增长战略顾问与渠道拓展专家。你深知对于个体老师而言，渠道建设需要“自有”和“外部”两条腿走路，并且你坚信“利他”是开启一切外部合作的金钥匙。\n\nTask（任务）：\n请为我的新课程设计一套从0到1的渠道增长行动计划。我会提供课程的基本信息，请你为我规划：\n1.  一个为期3个月的“自有渠道”建设计划。\n2.  一个针对性的“外部渠道”合作方案，包含具体的合作对象分析和一套“利他主义”的合作开场白。\n\n我的课程信息：\n- 我的课程主题：{例如：《面向职场新人的Excel数据可视化》}\n- 我的目标用户画像：{例如：22-28岁，在工作中需要频繁处理数据和制作报表的白领}\n- 我目前可投入的时间精力：{例如：每周大约8小时}\n- 我的内容创作特长：{例如：我擅长写图文并茂的教程文章}\n\nFormat（格式）：\n请按照以下“渠道增长行动计划”的格式，为我输出方案：\n\n### 《{课程主题}》渠道增长行动计划\n\n第一部分：自有渠道“私域”建设三月计划\n\n- 主攻平台：[根据我的特长，建议1-2个核心平台]\n- 内容价值策略：\n  - 第1个月（主题：吸引关注）：[具体的月度内容主题和发布频率]\n  - 第2个月（主题：建立信任）：[具体的月度内容主题和发布频率]\n  - 第3个月（主题：激活需求）：[具体的月度内容主题和发布频率]\n- 私域钩子设计：[设计一个吸引用户加我微信的免费“工具”或“资料”]\n\n---\n第二部分：外部渠道“利他”合作方案\n\n- 首选合作渠道分析：\n  - 渠道名称：[建议一个具体的、与我课程匹配的公众号/社群/平台]\n  - 推荐理由：[说明为什么这个渠道的用户画像与我高度匹配]\n- “利他”合作开场白（邮件/私信模板）：\n  “您好，[渠道方名称]！\n  [一段真诚的赞美和关注]\n  [点出你观察到的、对方粉丝的一个核心痛点]\n  [提出一个无法拒绝的、纯价值贡献的“利他”合作提议，例如免费提供一篇高质量的独家供稿、或一场公益直播]\n  [结尾，表明合作诚意]\n  ——[你的署名]”\n  （请帮我填充以上模板的具体内容）", "path": "prompts/08-ai-marketing/course-marketing/course-channels.md"}, "en": {"title": "Channels: help learners discover your course", "chapter": "3.2", "stage": 3, "inputs": "Course topic, audience, available time, content strengths", "output": "Three-month owned-channel plan and partnership outreach copy", "followup": "Break the first month into weekly actions within my time budget.", "prompt": "Role:\nYou are a course growth strategist and channel development expert. For independent teachers, you combine owned channels and external partnerships. You use helpful contributions to open partnership conversations.\n\nTask:\nDesign a channel growth action plan from scratch.\n1. A three-month owned-channel development plan.\n2. A targeted external partnership plan with partner analysis and a helpful opening message.\n\nMy course information:\n- Topic: {Example: Excel data visualization for early-career professionals}\n- Audience profile: {Example: office workers aged 22-28 who frequently work with data and reports}\n- Available time and effort: {Example: approximately eight hours a week}\n- Content strengths: {Example: illustrated tutorial articles}\n\nFormat:\n### Channel growth plan for {course topic}\nPart 1. Three-month owned-audience development plan\n- Main platforms: [Choose 1-2 based on my strengths]\n- Content value strategy:\n  - Month 1, attract attention: [Topics and posting frequency]\n  - Month 2, build trust: [Topics and posting frequency]\n  - Month 3, activate demand: [Topics and posting frequency]\n- Owned-audience incentive: [A free tool or resource that encourages users to add me on WeChat]\n\nPart 2. Helpful external partnership plan\n- First-choice partner:\n  - Channel: [A specific matching official account, community, or platform]\n  - Reason: [Explain the audience fit]\n- Opening email or direct message:\n  Hello, [partner name].\n  [Sincere appreciation and evidence of attention]\n  [A core pain point you observe among their followers]\n  [A valuable contribution, such as an exclusive article or a free educational livestream]\n  [Closing that expresses sincere interest]\n  [Your name]\n  Fill in the message with specific content.", "path": "prompts-en/08-ai-marketing/course-marketing/course-channels.md"}}, {"slug": "course-sales-page", "zh": {"title": "包装：如何为课程披上好外衣", "chapter": "3.3", "stage": 3, "inputs": "课程名称、价值、痛点、赠品、承诺、真实背书", "output": "价值包装七步法详情页文案", "followup": "请检查文案里的效果描述、退款承诺和背书是否都有依据。", "prompt": "Role（角色）：\n你是一位金牌营销策划与文案专家，尤其擅长为线上课程进行“价值包装”。你深刻理解消费者的购买心理，精通如何通过文案降低用户的感知风险，并塑造课程的“超值感”。你将严格遵循“价值包装七步法”来构建文案。\n\nTask（任务）：\n请为我的新课程撰写一份完整的详情页文案。我会提供课程的核心信息，请你运用“价值包装七步法”，为我生成一套有逻辑、有说服力、能直接使用的文案。\n\n我的课程信息：\n- 课程名称：{例如：《轻松记忆：让你过目不忘的超级记忆法》}\n- 课程副标题/一句话介绍：{例如：一套面向学生和职场人士的实用记忆技巧课}\n- 课程要解决的核心痛点 (请用列表形式)：\n    - {例如：背单词总是记不住}\n    - {例如：考试前疯狂复习，考完就忘}\n    - {例如：开会时记不住要点，发言时大脑空白}\n- 课程能带来的核心价值/效果：{例如：能将记忆效率提升3倍，轻松应对考试和工作汇报}\n- 我能提供的超值赠品：{例如：一份《抗遗忘复习周期表》PDF，一个记忆宫殿的实战案例拆解视频}\n- 我能做出的风险承诺：{例如：7天内无理由退款}\n- 我拥有的权威背书：{例如：往期学员的好评截图，我自己是世界记忆大师赛的认证选手}\n- 我的理想学员画像：{例如：需要大量记忆知识的高中生、大学生和考证党}\n\nFormat（格式）：\n请严格按照以下“高转化率详情页文案结构”输出，确保每个部分目标明确：\n\n### 【{课程名称}】\n\n1. 广告金句 (激发兴趣):\n   [在此处创作一句响亮的、包含用户利益的广告语]\n\n2. 痛点说明 (引发共鸣):\n   “你是否也曾经历过这样的崩溃瞬间？”\n   - [痛点1]\n   - [痛点2]\n   - [痛-点3]\n\n3. 价值提炼 (给出期望):\n   “学完这门课，你将能够...”\n   - [价值1]\n   - [价值2]\n\n4. 超值赠品 (无法抗拒):\n   “不仅如此！今天报名，我们还为你准备了2份超级赠品，让你物超所值！”\n   - 赠品一：[描述赠品1的名称和价值]\n   - 赠品二：[描述赠品2的名称和价值]\n\n5. 风险承诺 (彻底放心):\n   “我们向你郑重承诺...”\n   [在此处清晰地陈述你的退款或其他承诺政策]\n\n6. 权威背书 (建立信任):\n   “他们都说好，你还在等什么？”\n   [此处用文字描述你拥有的权威背书，例如“XX学员亲测有效”、“XX认证导师亲授”]\n\n7. 适用群体 (精准筛选):\n   “这门课特别适合谁？”\n   - [适合人群1]\n   - [适合人群2]\n   “谁不适合这门课？”\n   - [不适合的人群，以退为进]", "path": "prompts/08-ai-marketing/course-marketing/course-sales-page.md"}, "en": {"title": "Packaging: write your course sales page", "chapter": "3.3", "stage": 3, "inputs": "Course name, value, pain points, bonuses, commitments, real evidence", "output": "Seven-step value-packaging sales copy", "followup": "Check that outcome claims, refund commitments, and endorsements are supported.", "prompt": "Role:\nYou are a marketing planner and copywriter specializing in value packaging for online courses. You understand buying psychology, reducing perceived risk, and communicating exceptional value. Follow the seven-step value-packaging method strictly.\n\nTask:\nWrite complete, logical, persuasive, usable course sales-page copy using the seven steps.\n\nMy course information:\n- Name: {Example: easy memory, practical techniques to remember what you learn}\n- Subtitle or one-line introduction: {Example: practical memory techniques for students and professionals}\n- Core pain points:\n  - {Example: forgetting vocabulary}\n  - {Example: cramming before exams and forgetting afterward}\n  - {Example: missing meeting points and going blank when speaking}\n- Core outcomes or value: {Example: triple memory efficiency for exams and workplace reports}\n- Bonuses I can provide: {Example: a review-schedule PDF and a memory-palace case video}\n- Risk-reduction commitment: {Example: an unconditional seven-day refund}\n- Evidence or credentials: {Example: past learner feedback screenshots and my World Memory Championships certification}\n- Ideal learners: {Example: high-school and college students or certification candidates with substantial memorization needs}\n\nFormat:\n### {course name}\n1. Advertising line, spark interest\n   [A strong line with a learner benefit]\n2. Pain points, create recognition\n   Have you experienced these frustrations?\n   - [Pain point 1]\n   - [Pain point 2]\n   - [Pain point 3]\n3. Value, set expectations\n   After the course, you will be able to:\n   - [Value 1]\n   - [Value 2]\n4. Bonuses, add value\n   Enroll today and receive two additional resources:\n   - Bonus 1: [Name and value]\n   - Bonus 2: [Name and value]\n5. Risk-reduction commitment, build confidence\n   We commit to:\n   [Clearly state refund or other policies]\n6. Evidence, build trust\n   [Describe the available evidence, such as learner results or certified instructor credentials]\n7. Suitable audience, identify fit\n   This course suits:\n   - [Audience 1]\n   - [Audience 2]\n   This course may not suit:\n   - [Unsuitable audience]", "path": "prompts-en/08-ai-marketing/course-marketing/course-sales-page.md"}}, {"slug": "course-launch-campaign", "zh": {"title": "造势：如何吸引大量潜在客户", "chapter": "3.4", "stage": 3, "inputs": "课程名称、核心价值、目标用户、自有渠道", "output": "七天预热计划与发售直播脚本", "followup": "请写出第一天可直接发布的朋友圈和社群文案。", "prompt": "Role（角色）：\n你是一位金牌课程营销与发布会策划专家，是“造势”的大师。你深知一场成功的课程发售，七分靠预热，三分靠引爆。你擅长为线上课程设计一套完整的、有仪式感、能激发用户强烈购买欲的发布会流程。\n\nTask（任务）：\n请为我的新课程策划一套为期7天的“新品发布”造势行动方案。我会提供课程的基本信息，请你为我规划：\n1.  一个响亮的、有吸引力的发布活动名称。\n2.  一套从第1天到第7天的详细预热行动计划（朋友圈/社群文案方向）。\n3.  一个正式发售直播会的核心流程脚本（认知、干货、成交主张）。\n\n我的课程信息：\n- 课程名称：{例如：《副业赚钱第一课：用写作实现收入破万》}\n- 课程核心价值：{例如：教用户一套普通人也能上手的、通过在新媒体平台投稿实现稳定变现的方法论}\n- 目标用户：{例如：希望增加收入的宝妈、大学生、职场新人}\n- 我的主要自有渠道：{例如：拥有1000粉丝的个人公众号，3个500人的微信群}\n\nFormat（格式）：\n请按照以下“新品发布造势行动方案”的格式，为我输出：\n\n### 《{课程名称}》新品发布造势行动方案\n\n1. 发布活动命名建议：\n   [在此处建议1-2个响亮的活动名称]\n\n2. 发售预热七日行动计划 (朋友圈/社群文案方向):\n   - 第1-2天（悬念预告）：[文案方向建议]\n   - 第3-4天（价值展示）：[文案方向建议]\n   - 第5-6天（信任加强）：[文案方向建议]\n   - 第7天（临门一脚）：[文案方向建议]\n\n3. 正式发售直播会脚本框架：\n   - 第一部分：讲透认知 (约20分钟)\n     - [设计1-2个能击中用户焦虑、引发共鸣的观点]\n   - 第二部分：讲透干货 (约30分钟)\n     - [设计2-3个能让用户立刻感觉“有用”的、可直接应用的迷你方法论]\n   - 第三部分：讲透成交主张 (约15分钟)\n     - [设计一个包含“限时优惠 + 超值赠品 + 稀缺名额”的无法抗拒的Offer]", "path": "prompts/08-ai-marketing/course-marketing/course-launch-campaign.md"}, "en": {"title": "Launch: attract potential learners", "chapter": "3.4", "stage": 3, "inputs": "Course name, value, audience, owned channels", "output": "Seven-day warm-up plan and launch livestream outline", "followup": "Write ready-to-post social and community copy for day one.", "prompt": "Role:\nYou are a course marketing and launch-event planner specializing in building anticipation. You understand the importance of preparation before a launch and design structured online events that encourage interest and purchase.\n\nTask:\nPlan a seven-day launch warm-up campaign for my new course. Include:\n1. An appealing launch-event name.\n2. A detailed day-one-to-day-seven warm-up plan, with directions for WeChat Moments and community copy.\n3. The core launch livestream script: understanding, practical content, and the sales proposition.\n\nMy course information:\n- Name: {Example: your first side-income course, earn over 10,000 yuan through writing}\n- Core value: {Example: an accessible method for earning through submissions to new-media platforms}\n- Audience: {Example: mothers seeking additional income, university students, and early-career professionals}\n- Owned channels: {Example: an official account with 1,000 followers and three WeChat groups of 500 people each}\n\nFormat:\n### New-course launch campaign for {course name}\n1. Event names\n   [Suggest 1-2 names]\n2. Seven-day warm-up plan, with social and community copy directions\n   - Days 1-2, anticipation: [Copy directions]\n   - Days 3-4, value: [Copy directions]\n   - Days 5-6, trust: [Copy directions]\n   - Day 7, final invitation: [Copy directions]\n3. Launch livestream framework\n   - Understanding, about 20 minutes: [1-2 ideas that connect with learners' concerns]\n   - Practical content, about 30 minutes: [2-3 immediately useful small methods]\n   - Sales proposition, about 15 minutes: [An offer with a limited-time discount, valuable bonuses, and scarce places]", "path": "prompts-en/08-ai-marketing/course-marketing/course-launch-campaign.md"}}, {"slug": "lesson-peak-experience", "zh": {"title": "讲课：如何让学员听课听上瘾", "chapter": "4.1", "stage": 4, "inputs": "课程主题、具体课题、知识点、预期顿悟", "output": "认知冲突讲授流程与惊喜教学环节", "followup": "请给出开场五分钟的逐字稿和互动问题。", "prompt": "Role（角色）：\n你是一位王牌教学设计师与课堂体验优化专家，是“峰终定律”在教育领域的顶级实践者。你深知，让学员上瘾的关键，不在于灌输知识，而在于创造“欣喜感”和“认知感”的峰值时刻。\n\nTask（任务）：\n请帮助我将一节可能会很枯燥的课程，设计成一堂充满“峰值体验”的精彩课程。我会提供这节课的核心知识点，请你：\n1.  运用“冲突式认知改变公式”，为我设计一个能创造“认知感”的开场和核心讲解流程。\n2.  为这节课，创造性地设计2-3个能带来“欣喜感”的教学环节或材料。\n\n我的课程信息：\n- 课程主题：{例如：《人人都能学会的理财课》}\n- 这节课的具体课题：{例如：复利的威力}\n- 我计划讲授的核心知识点 (请用枯燥、客观的方式罗列)：\n    - {例如：复利的定义和数学公式 F = P(1+i)^n}\n    - {例如：讲解本金、利率和时间三个核心要素}\n    - {例如：对比单利和复利的长期差异}\n- 我希望学员听完后产生的“啊哈”时刻是什么：{例如：让学员意识到，即使小钱，只要坚持长期投资，也能滚成一笔巨款，从而对理财产生信心和动力}\n\nFormat（格式）：\n请按照以下“‘上瘾体验式’课程脚本”的格式，为我输出详细方案：\n\n### “上瘾体验式”课程脚本：《{这节课的具体课题}》\n\n一、 创造“认知感”的教学流程 (冲突式认知改变)\n\n1.  背景 (切入)：[建议一个能引发学员共鸣的、关于“存钱”或“理财”的常见场景或想法]\n2.  冲突 (转折)：[建议一个能颠覆上述常见想法的、惊人的事实或案例]\n3.  疑问 (设问)：[根据冲突，提出一个能激发学员强烈好奇心的问题]\n4.  解决方案 (讲授)：[在此处，将我提供的核心知识点，作为答案自然地引出和讲解]\n\n二、 创造“欣喜感”的教学环节 (惊喜设计)\n\n1.  欣喜点1 (例如：提升感官享受)：[建议一个生动的故事、比喻或视觉化图表]\n2.  欣喜点2 (例如：增加刺激性)：[建议一个互动性强的在线计算器或小实验，让学员亲手验证复利效果]\n3.  欣喜点3 (例如：打破脚本)：[建议一个课程结尾的惊喜彩蛋或额外福利]", "path": "prompts/08-ai-marketing/course-marketing/lesson-peak-experience.md"}, "en": {"title": "Teaching: create engaging lesson experiences", "chapter": "4.1", "stage": 4, "inputs": "Course topic, lesson topic, concepts, desired insight", "output": "Cognitive-conflict lesson flow and moments of delight", "followup": "Write the opening five-minute script and interaction questions.", "prompt": "Role:\nYou are a teaching designer and classroom experience specialist who applies the peak-end rule in education. You create engaging learning experiences through moments of delight and insight.\n\nTask:\nTurn a potentially dry lesson into a lesson with memorable peak experiences.\n1. Use the cognitive-conflict change formula to design an opening and core teaching process that create insight.\n2. Propose 2-3 teaching activities or materials that create delight.\n\nMy course information:\n- Course topic: {Example: personal finance for everyone}\n- Specific lesson: {Example: the power of compound interest}\n- Core concepts, listed in plain factual terms:\n  - {Example: compound interest and the formula F = P(1+i)^n}\n  - {Example: principal, interest rate, and time}\n  - {Example: long-term differences between simple and compound interest}\n- Desired aha moment: {Example: learners see how small amounts can grow through long-term investing and feel motivated to manage money}\n\nFormat:\n### Engaging lesson script: {specific lesson topic}\nPart 1. Teaching flow for insight, using cognitive conflict\n1. Background: [A relatable saving or personal-finance situation]\n2. Conflict: [A surprising fact or case that challenges the initial assumption]\n3. Question: [A question arising from the conflict that creates curiosity]\n4. Solution: [Introduce and explain my concepts naturally as the answer]\n\nPart 2. Activities that create delight\n1. Sensory appeal: [A vivid story, analogy, or visual chart]\n2. Active exploration: [An online calculator or small experiment to test compound interest]\n3. Break the expected script: [A surprise extra or benefit at the end]", "path": "prompts-en/08-ai-marketing/course-marketing/lesson-peak-experience.md"}}, {"slug": "course-community-service", "zh": {"title": "服务：如何实现高质量满意度", "chapter": "4.2", "stage": 4, "inputs": "课程名称、学习目标、学员画像、社群服务周期", "output": "服务规则、连接活动、里程碑与毕业体验", "followup": "请补充答疑排班、服务边界和每周复盘表。", "prompt": "Role（角色）：\n你是一位金牌社群运营官与峰值体验设计师，你深知一个成功的学员社群，核心在于创造“关系价值”。你擅长运用“服务规则”建立社群的秩序与安全感，并用“峰值体验”设计来激发学员的愉悦感与归属感。\n\nTask（任务）：\n请为我的线上课程，设计一套完整的“高质量满意度”社群服务体系。我会提供课程的基本信息，请你围绕“打造服务规则”和“打造峰值体验”两大原则，为我提供一套详细、可执行的社群运营方案。\n\n我的课程信息：\n- 课程名称：{例如：《30天掌握精准写作》}\n- 课程的核心学习目标：{例如：帮助学员建立写作框架，写出逻辑清晰、表达精准的文章}\n- 目标学员画像：{例如：需要频繁写工作报告、方案和公众号文章的职场人士}\n- 计划的社群服务周期：{例如：30天}\n\nFormat（格式）：\n请按照以下“高质量社群服务体系方案”的格式，为我输出：\n\n### 《{课程名称}》高质量社群服务体系方案\n\n第一部分：打造服务规则 (建立掌控感与秩序)\n\n1.  针对老师的规则 (高效服务)：\n    - 答疑时间：[建议一个固定的、可持续的答疑时间]\n    - 内容发布：[建议一个固定的、有节奏的内容发布计划，如每周作业]\n2.  针对学员的规则 (清爽环境)：\n    - 提问规范：[建议一个清晰的提问格式，以提升答疑效率]\n    - 互动规范：[建议几条核心的群规，如禁止广告、文明交流等]\n\n---\n第二部分：打造峰值体验 (创造连接与荣耀)\n\n1.  如何创造“连接感”：\n    - 共同使命：[为本期社群设计一个有感召力的共同学习使命]\n    - 创造关系：[设计1-2个能促进学员之间连接的活动，如“破冰介绍”、“互助小组”等]\n2.  如何创造“荣耀感”：\n    - 设立里程碑：[为课程学习路径设计2-3个清晰的里程碑及对应的“虚拟奖励”]\n    - 认可他人：[设计一个定期的、能公开表彰优秀学员的“明星学员”活动]\n3.  如何设计“终值体验”：\n    - [在服务周期结束时，设计一个有仪式感的、能让学员留下美好回忆的“毕业活动”]", "path": "prompts/08-ai-marketing/course-marketing/course-community-service.md"}, "en": {"title": "Service: design a satisfying learner community", "chapter": "4.2", "stage": 4, "inputs": "Course name, learning goal, learner profile, community service duration", "output": "Service rules, connection activities, milestones, graduation experience", "followup": "Add a Q\u0026A schedule, service boundaries, and a weekly review sheet.", "prompt": "Role:\nYou are a learner-community operator and peak-experience designer. You create relationship value, use service rules to establish order and security, and design peak experiences that build enjoyment and belonging.\n\nTask:\nDesign a complete, practical community service system that produces high learner satisfaction. Use two principles: establish service rules and create peak experiences.\n\nMy course information:\n- Name: {Example: precise writing in 30 days}\n- Core learning goal: {Example: build a writing framework and write clear, precise articles}\n- Learner profile: {Example: professionals who regularly write reports, proposals, and official-account articles}\n- Community service duration: {Example: 30 days}\n\nFormat:\n### Learner-community service system for {course name}\nPart 1. Service rules, build order and a sense of control\n1. Teacher rules for efficient service\n   - Q\u0026A: [A fixed, sustainable time]\n   - Content: [A regular publishing rhythm, such as weekly assignments]\n2. Learner rules for a clear environment\n   - Questions: [A clear format to improve Q\u0026A efficiency]\n   - Interaction: [Core rules, such as no advertising and respectful communication]\n\nPart 2. Peak experiences, build connection and recognition\n1. Connection\n   - Shared mission: [A motivating learning mission for this cohort]\n   - Relationships: [1-2 activities, such as introductions or peer-support groups]\n2. Recognition\n   - Milestones: [2-3 learning milestones and corresponding virtual rewards]\n   - Recognize others: [A regular public learner-recognition activity]\n3. Ending experience\n   [A graduation activity that gives the service period a memorable ending]", "path": "prompts-en/08-ai-marketing/course-marketing/course-community-service.md"}}, {"slug": "learner-lifetime-value", "zh": {"title": "价值：如何设计长期价值体系", "chapter": "4.3", "stage": 4, "inputs": "核心课程、售价、价值、学员进阶需求", "output": "引流、核心、高阶、终身服务产品体系", "followup": "请根据真实需求，选出一个最值得先验证的进阶产品。", "prompt": "Role（角色）：\n你是一位顶级的商业模式顾问与LTV（用户生命周期总价值）增长战略家。你深知，一个健康的知识付费事业，绝不能只依赖于单一产品。你擅长帮助个体老师，基于其核心优势，设计一个层次分明、能够引导用户持续复购的产品金字塔。\n\nTask（任务）：\n请帮助我基于我现有的核心课程，设计一套完整的“LTV增长产品体系”。我会提供我的核心课程信息，以及我对学员进阶需求的洞察。请你为我规划一个包含“引流品”、“核心课”、“高阶课”和“尖端服务”四个层次的产品金字塔。\n\n我的课程信息：\n- 我的核心课程名称：{例如：《Canva平面设计速成课》}\n- 课程售价：{例如：399元}\n- 课程核心价值：{例如：帮助零基础小白，快速掌握用Canva制作海报、公众号配图等常用设计}\n- 我的学员在学完课程后，可能会产生哪些新的需求或进阶渴望？：\n    - {例如：他们想学习更专业的设计软件，如PS}\n    - {例如：他们想学习如何用设计技能来接单赚钱}\n    - {例如：他们想获得一对一的作品指导}\n\nFormat（格式）：\n请按照以下“LTV增长产品体系规划书”的格式，为我输出详细方案：\n\n### “LTV增长产品体系”规划书\n\n核心定位：[一句话定义我的长期价值主张]\n\n产品金字塔：\n\n1. 塔基：引流品/体验品\n   - 产品建议：[建议1-2个低价、高价值的引流产品]\n   - 建议定价：[例如：9.9元 - 49元]\n   - 战略目的：[例如：降低新用户信任门槛，扩大潜在客户池]\n\n2. 塔身：核心课程（您当前的课程）\n   - 产品名称：《{我的核心课程名称}》\n   - 当前定价：{课程售价}\n   - 战略目的：实现规模化转化，奠定品牌口碑。\n\n3. 塔顶：高阶课程/服务\n   - 产品建议：[根据学员的进阶渴望，建议1-2个高客单价的课程或服务]\n   - 建议定价：[例如：999元 - 2999元]\n   - 战略目的：筛选高价值用户，提供深度价值，提升LTV。\n\n4. 塔尖：尖端产品/终身服务\n   - 产品建议：[设计一个稀缺的、高溢价的、能提供极致体验的终极产品]\n   - 建议定价：[例如：5000元以上]\n   - 战略目的：服务最忠实的粉丝，树立品牌天花板，创造超级口碑。", "path": "prompts/08-ai-marketing/course-marketing/learner-lifetime-value.md"}, "en": {"title": "Value: build a long-term learner journey", "chapter": "4.3", "stage": 4, "inputs": "Core course, price, value, learner progression needs", "output": "Entry, core, advanced, and lifetime-service product ladder", "followup": "Choose one advanced product to validate first based on real learner needs.", "prompt": "Role:\nYou are a business model consultant and lifetime value (LTV) growth strategist. You design knowledge businesses with several product levels based on each teacher's core strengths, guiding learners toward continued purchases through a clear product pyramid.\n\nTask:\nPlan a growth-oriented product system around my core course. Design a complete product pyramid, from entry offers to high-end services. For each level, recommend specific products or services and explain the strategic purpose.\n\nMy course information:\n- Core course name: {Example: Canva graphic design crash course}\n- Current price: {Example: 399 yuan}\n- Core value: {Example: beginners learn to make posters and official-account illustrations with Canva}\n- New needs or ambitions learners may develop:\n  - {Example: learn more advanced software, such as Photoshop}\n  - {Example: take paid design commissions}\n  - {Example: receive one-to-one feedback on their work}\n\nFormat:\n### LTV growth product-system plan\nCore positioning: [One sentence defining the long-term value proposition]\n\nProduct pyramid:\n1. Base: entry or trial offers\n   - Products: [1-2 low-priced, high-value entry products]\n   - Suggested price: [Example: 9.9-49 yuan]\n   - Purpose: [Reduce the trust barrier and reach more potential learners]\n2. Middle: current core course\n   - Name: {my core course name}\n   - Current price: {course price}\n   - Purpose: scalable conversion and a strong reputation.\n3. Upper level: advanced courses or services\n   - Products: [1-2 higher-priced offers based on learners' progression needs]\n   - Suggested price: [Example: 999-2,999 yuan]\n   - Purpose: deeper value and higher LTV for committed learners.\n4. Peak: premium or lifetime services\n   - Product: [A scarce, premium offer with an exceptional experience]\n   - Suggested price: [Example: over 5,000 yuan]\n   - Purpose: serve loyal learners, establish a premium brand benchmark, and build word of mouth.", "path": "prompts-en/08-ai-marketing/course-marketing/learner-lifetime-value.md"}}]</script>
+  <script>
+    'use strict';
+    const entries = JSON.parse(document.getElementById('prompt-data').textContent);
+    const originalHTML = '<!doctype html>\n' + document.documentElement.outerHTML;
+    const repo = 'https://github.com/yaojingang/yao-open-prompts/blob/main/';
+    const $ = id => document.getElementById(id);
+    const copy = {
+      zh: {
+        title: '课程营销学 · 配套提示词', intro: '把一门课从想法推进到长期经营。按当前任务选择章节，填入真实信息，与 AI 一起打磨你的课程。',
+        edition: '套独立提示词\n作者 姚金刚 · CC BY 4.0', home: '全部提示词', guide: '使用指南', skip: '跳到提示词正文', searchLabel: '查找当前要解决的问题', placeholder: '搜索章节、标题或关键词', clear: '显示全部', empty: '没有找到匹配章节，请换个关键词或显示全部。',
+        source: '查看 Markdown ↗', inputs: '准备这些信息', output: '你会得到', promptLabel: '可编辑的提示词正文', hint: '把 {示例} 替换为真实信息，包括输出标题中的名称。编辑内容保留在当前会话中。',
+        copy: '复制提示词', download: '下载正文 .txt', reset: '恢复原文', offline: '下载离线 HTML', followup: '得到初稿后，可以这样追问', guideTitle: '从一份具体的课程简报开始', fullGuide: '完整使用指南 ↗',
+        sourceNote: '原稿有 18 个小节。3.5 发售与 2.6 交付的正文及使用说明相同，本页收录 17 套独立模板，保留原书编号。阅读 3.5 时可参考 2.6；独立的 3.5 模板待作者补充。中文正文保留原文，英文提供对应译本。',
+        validation: '请用真实调研核实市场、价格和学员需求。案例、背书、效果描述与服务承诺应有依据。章节标题中的倍数沿用原书表述，具体效果取决于课程与执行。', credit: '《课程营销学》配套提示词 · 姚金刚', attribution: '分享与改编请保留作者和来源',
+        stageNames: ['定位篇', '设计篇', '售卖篇', '运营篇'], stageSub: ['找到你与用户的连接', '把专业转化为学习体验', '让课程被看见与选择', '积累口碑与长期价值'], count: n => `${n} 套`, result: n => `显示 ${n} / 17 套`,
+        previous: '← 上一章', next: '下一章 →', copied: '已复制，可粘贴到你的对话模型。', manual: '已选中正文，请按 ⌘C 或 Ctrl+C 复制。', restored: '已恢复原文。', downloaded: '已下载当前编辑的正文。', offlineDone: '已下载离线页面，包含全部 17 套原始模板。',
+        steps: [['选择章节', '先明确目标用户和课程痛点，再逐步设计、发售与运营。'], ['填入真实信息', '准备专业经验、用户画像、课程目标、已有材料与可投入时间。'], ['与 AI 对话', '粘贴正文并回答追问。使命定位可要求 AI 等待你的真实回答。'], ['验证再推进', '选定一个方案，补充具体要求，用访谈和执行结果继续调整。']]
+      },
+      en: {
+        title: 'Course Marketing companion prompts', intro: 'Develop a course from its first idea to long-term operation. Choose a task, add real information, and refine your course with AI.', edition: 'distinct templates\nYao Jingang · CC BY 4.0', home: 'All prompts', guide: 'Usage guide', skip: 'Skip to prompt', searchLabel: 'Find the task you want to work on', placeholder: 'Search chapters, titles, or keywords', clear: 'Show all', empty: 'No matching chapters. Try another keyword or show all.',
+        source: 'View Markdown ↗', inputs: 'Prepare', output: 'Expected output', promptLabel: 'Editable prompt', hint: 'Replace {examples} with real information, including names in output headings. Edits remain in this page session.', copy: 'Copy prompt', download: 'Download .txt', reset: 'Restore original', offline: 'Download offline HTML', followup: 'A suggested follow-up question', guideTitle: 'Start with a specific course brief', fullGuide: 'Full usage guide ↗',
+        sourceNote: 'The manuscript contains 18 chapter entries. Chapter 3.5 repeats the prompt and instructions from 2.6. This page includes 17 distinct templates with the original chapter numbers. Refer to 2.6 when reading 3.5; a separate 3.5 template awaits author input. Chinese bodies preserve the source; English editions provide translations.',
+        validation: 'Validate markets, prices, and learner needs through research. Support examples, endorsements, outcome claims, and service promises with evidence. Multipliers in the Chinese chapter titles come from the book; results depend on the course and execution.', credit: 'Course Marketing companion prompts · Yao Jingang', attribution: 'Retain author and source when sharing or adapting',
+        stageNames: ['Positioning', 'Design', 'Sales', 'Operations'], stageSub: ['Connect with your learners', 'Design a learning experience', 'Reach potential learners', 'Build lasting learner value'], count: n => `${n} prompts`, result: n => `${n} of 17 prompts`, previous: '← Previous', next: 'Next →', copied: 'Copied. Paste into your conversational model.', manual: 'Text selected. Press ⌘C or Ctrl+C to copy.', restored: 'Original restored.', downloaded: 'Downloaded your current edited prompt.', offlineDone: 'Offline page downloaded with all 17 original templates.',
+        steps: [['Choose a chapter', 'Define your audience and their pain point, then work through design, sales, and operations.'], ['Add real information', 'Prepare your experience, learner profile, course goals, materials, and available time.'], ['Talk with AI', 'Paste the prompt and answer questions. For mission positioning, ask AI to wait for your real answers.'], ['Validate and refine', 'Choose a proposal, request specific changes, and refine it through interviews and practical results.']]
+      }
+    };
+    let lang = new URLSearchParams(location.search).get('lang') === 'en' ? 'en' : 'zh';
+    let stage = 0;
+    let selected = entries[0];
+    const edits = new Map();
+    let renderedKey = '';
+    const text = () => copy[lang];
+    const key = () => selected.slug + ':' + lang;
+    const chapterHash = entry => '#' + entry.zh.chapter.replace('.', '-');
+    function remember() { if (renderedKey) edits.set(renderedKey, $('prompt').value); }
+    function showPrompt() {
+      const item = selected[lang];
+      renderedKey = key();
+      $('chapter-meta').textContent = text().stageNames[item.stage - 1] + ' / ' + item.chapter;
+      $('prompt-title').textContent = item.title;
+      $('input-info').textContent = item.inputs;
+      $('output-info').textContent = item.output;
+      $('followup-text').textContent = item.followup;
+      $('prompt').value = edits.get(renderedKey) ?? item.prompt;
+      $('source-link').href = repo + item.path;
+      $('status').textContent = '';
+      const index = entries.indexOf(selected);
+      $('prev').disabled = index === 0; $('next').disabled = index === entries.length - 1;
+      $('prev').textContent = text().previous; $('next').textContent = text().next;
+    }
+    function renderList() {
+      const query = $('search').value.trim().toLocaleLowerCase();
+      const visible = entries.filter(entry => {
+        const item = entry[lang];
+        return (!stage || item.stage === stage) && (!query || [item.chapter, item.title, item.inputs, item.output, item.prompt].join(' ').toLocaleLowerCase().includes(query));
+      });
+      $('chapters').replaceChildren(...visible.map(entry => {
+        const link = document.createElement('a');
+        link.href = chapterHash(entry); link.className = 'chapter';
+        link.setAttribute('aria-current', String(entry === selected));
+        const number = document.createElement('strong'); number.textContent = entry[lang].chapter;
+        const title = document.createElement('span'); title.textContent = entry[lang].title;
+        link.append(number, title);
+        link.addEventListener('click', event => {
+          if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+          event.preventDefault(); choose(entry);
+          if (matchMedia('(max-width: 680px)').matches) { $('editor').scrollIntoView(); $('editor').focus({preventScroll: true}); }
+        });
+        return link;
+      }));
+      $('result-count').textContent = text().result(visible.length);
+      $('empty').hidden = visible.length > 0;
+    }
+    function renderStages() {
+      $('stages').replaceChildren(...[1, 2, 3, 4].map(number => {
+        const button = document.createElement('button'); button.type = 'button'; button.className = 'stage';
+        button.setAttribute('aria-pressed', String(stage === number));
+        const label = document.createElement('span');
+        const sub = document.createElement('small'); sub.textContent = '0' + number + ' / ' + text().stageSub[number - 1];
+        const name = document.createElement('b'); name.textContent = text().stageNames[number - 1];
+        const count = document.createElement('em'); count.textContent = text().count(entries.filter(e => e[lang].stage === number).length);
+        label.append(sub, name); button.append(label, count);
+        button.addEventListener('click', () => { stage = stage === number ? 0 : number; renderStages(); renderList(); });
+        return button;
+      }));
+    }
+    function updateURL() {
+      const url = new URL(location.href);
+      if (lang === 'en') url.searchParams.set('lang', 'en'); else url.searchParams.delete('lang');
+      url.hash = chapterHash(selected);
+      if (url.href !== location.href) {
+        try { history.pushState(null, '', url); } catch { location.hash = chapterHash(selected); }
+      }
+    }
+    function choose(entry) { remember(); selected = entry; updateURL(); showPrompt(); renderList(); }
+    function localize() {
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+      document.title = text().title + ' | Yao Open Prompts';
+      document.querySelectorAll('[data-i18n]').forEach(element => { element.textContent = text()[element.dataset.i18n]; });
+      document.querySelector('.edition span').style.whiteSpace = 'pre-line';
+      $('search').placeholder = text().placeholder;
+      $('language').textContent = lang === 'zh' ? 'English' : '中文';
+      $('language').setAttribute('aria-label', lang === 'zh' ? 'Switch to English' : '切换为中文');
+      for (const [id, zh, en] of [['top-nav', '专题导航', 'Collection navigation'], ['stages', '按篇筛选', 'Filter by stage'], ['catalog', '章节目录', 'Chapter directory'], ['chapters', '提示词章节', 'Prompt chapters']]) $(id).setAttribute('aria-label', lang === 'zh' ? zh : en);
+      $('guide-link').href = repo + 'references/course-marketing-guide' + (lang === 'en' ? '.en' : '') + '.md';
+      $('steps').replaceChildren(...text().steps.map(([title, description]) => { const li = document.createElement('li'); const b = document.createElement('b'); b.textContent = title; li.append(b, document.createTextNode(description)); return li; }));
+      renderStages(); renderList(); showPrompt();
+    }
+    function navigateFromURL() {
+      remember();
+      lang = new URLSearchParams(location.search).get('lang') === 'en' ? 'en' : 'zh';
+      const raw = location.hash.slice(1).replace('-', '.');
+      const chapter = raw === '3.5' ? '2.6' : raw;
+      selected = entries.find(entry => entry.zh.chapter === chapter) || selected;
+      localize();
+    }
+    function downloadFile(content, filename, type) {
+      const url = URL.createObjectURL(new Blob([content], {type}));
+      const link = document.createElement('a'); link.href = url; link.download = filename;
+      document.body.append(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 2000);
+    }
+    $('search').addEventListener('input', renderList);
+    $('prompt').addEventListener('input', () => { edits.set(key(), $('prompt').value); $('status').textContent = ''; });
+    $('clear').addEventListener('click', () => { stage = 0; $('search').value = ''; renderStages(); renderList(); });
+    $('language').addEventListener('click', () => { remember(); lang = lang === 'zh' ? 'en' : 'zh'; $('search').value = ''; updateURL(); localize(); });
+    $('copy').addEventListener('click', async () => {
+      try {
+        if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
+        await navigator.clipboard.writeText($('prompt').value); $('status').textContent = text().copied;
+      } catch {
+        $('prompt').focus(); $('prompt').select();
+        let succeeded = false; try { succeeded = document.execCommand('copy'); } catch {}
+        $('status').textContent = succeeded ? text().copied : text().manual;
+      }
+    });
+    $('reset').addEventListener('click', () => { edits.delete(key()); $('prompt').value = selected[lang].prompt; $('status').textContent = text().restored; });
+    $('download').addEventListener('click', () => {
+      const attribution = lang === 'zh' ? '\n\n来源：《课程营销学》配套提示词 · 作者：姚金刚 · CC BY 4.0\n' : '\n\nSource: Course Marketing companion prompts · Author: Yao Jingang · CC BY 4.0\n';
+      downloadFile($('prompt').value + attribution, selected.slug + '-' + lang + '.txt', 'text/plain;charset=utf-8'); $('status').textContent = text().downloaded;
+    });
+    $('offline').addEventListener('click', () => { downloadFile(originalHTML, 'course-marketing.html', 'text/html;charset=utf-8'); $('status').textContent = text().offlineDone; });
+    $('prev').addEventListener('click', () => { const index = entries.indexOf(selected); if (index > 0) choose(entries[index - 1]); });
+    $('next').addEventListener('click', () => { const index = entries.indexOf(selected); if (index < entries.length - 1) choose(entries[index + 1]); });
+    addEventListener('hashchange', navigateFromURL);
+    addEventListener('popstate', navigateFromURL);
+    navigateFromURL();
+  </script>
+</body>
+</html>
